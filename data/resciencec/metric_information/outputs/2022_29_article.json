@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_29_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 80
+  },
+  "reasoning": {
+    "Sources": "The datasets (NYC Yellow Taxi) and key hyperparameters were identified. The research questions/claims were clearly stated. However, the preprocessed data and the script to preprocess raw data were not publicly available, requiring the reproducers to contact the authors and also develop their own preprocessing method. This partial availability of initial data preparation steps reduces the score.",
+    "Methods": "The core algorithms (MDP, neural value estimator, objective functions) were described, and the original code was used as a base for re-implementation. However, the lack of a preprocessing script and publicly available preprocessed data is a significant barrier to independent implementation of the entire pipeline. Critical details regarding training days and epoch duration were only found in the code, not the paper. Discrepancies in embedding size were also found, and a specific commercial solver (CPLEX) was required, necessitating a version change. These issues indicate that independent implementation from the paper alone would be very difficult.",
+    "Experiments": "The experimental setup, including hyperparameters, number of drivers (50 and 200), and evaluation metrics, was largely specified and followed. Hardware and runtime were well-documented in the reproduction report. However, the reproducers discovered a critical flaw: the neural model was *not trained* for 50 drivers in the original experiments, meaning the original paper's results for 50 drivers were based on an unintended setup. Additionally, the specific training days were not explicitly stated in the paper and had to be inferred from the code. This significant flaw in the original experimental design and reporting reduces the reproducibility score.",
+    "Sinks": "The reproducers clearly stated which claims were reproduced and which were not, providing their own figures for comparison. However, they explicitly contradicted one of the original paper's key claims (Claim 2: income for lowest-earning drivers/total income) and discovered a significant experimental flaw (untrained model for 50 drivers) that affected the original paper's results. This means that the original paper's reported conclusions and figures are not fully traceable to a sound, reproducible workflow, as some were found to be incorrect or based on flawed experiments."
+  },
+  "filename": "2022_29_article.pdf"
+}

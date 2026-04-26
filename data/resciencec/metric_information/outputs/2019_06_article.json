@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2019_06_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 80,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The datasets (MNIST, Fashion-MNIST, CelebA) were clearly identified. Preprocessing steps for CelebA (center cropping, downsampling, RGB channels) were also specified. The reproducers noted a deviation from the original paper's suggestion for unitary norm scaling, opting for 0-1 Min-Max scaling for better results, which indicates the original suggestion was not optimal or fully detailed, but the core data sources were clear.",
+    "Methods": "The core architecture (encoder/decoder, fully connected neural networks) and the loss function (ELBO, Spike and Slab distribution, reparametrization trick) were sufficiently described for implementation. However, several key implementation details were missing, such as the batch size (assumed to be 32), the weights initialization method (assumed Kaiming), and specific activation functions for the recognition model (reproducers suggested clamp/Sigmoid for stability). The interpretation of 'iterations' into 'epochs' also required an assumption.",
+    "Experiments": "While the types of experiments (ELBO evaluation, classification, interpretation, visualization) and evaluation protocols were clear, critical details for replicating the exact experimental setup were underspecified. The original paper provided a range for the learning rate (0.001-0.01) but not a specific value, and the number of training iterations (20,000) had to be translated into epochs (11 for some datasets, 90 for others) with an assumed batch size. The reproducers explicitly stated that 'authors must provide more specifications on the optimization hyperparameters to facilitate the reproducibility task' and noted 'minor discrepancies in the results can be explained by the restricted number of training epochs'.",
+    "Sinks": "The reproducers were able to generate figures of the same type as in the original paper, including ELBO curves, classification accuracy plots, reconstruction results, and generated samples. They confirmed the qualitative conclusions regarding sparse, informative, and interpretable representations. However, quantitative results, such as the ELBO curves, showed 'minor discrepancies' and a 'gap between the curves' compared to the original paper, attributed to underspecified training parameters. The generated images also exhibited blurriness, which the reproducers attributed to model capacity rather than a direct reproducibility failure."
+  },
+  "filename": "2019_06_article.pdf"
+}

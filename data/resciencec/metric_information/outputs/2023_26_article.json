@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_26_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 95,
+    "Experiments": 95,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The reproduction report indicates that the CUB-200-2011 dataset parameters were not documented, preventing faithful training on it. Additionally, the number of image augmentations was reduced from 40 to 4 due to computational constraints, which is a deviation from the original setup. This shows partial specification of the datasets and their processing.",
+    "Methods": "The codebase provided was incomplete and minimally documented. Key components like ProtoTree implementation and code for prototype visualization were missing. Variable names in the code did not correspond to those in the paper. Hyperparameter values for cluster cost and Ttest also deviated from the paper's description. Reproductors had to make assumptions and modify the code significantly.",
+    "Experiments": "The reproducers were unable to evaluate the Prototype Matching Score (PMS) due to issues with the provided code and computational constraints, which prevented verification of a key claim (Claim 2). Many experimental configurations were missing (e.g., for CUB dataset, and reusing the teacher's decision module), requiring assumptions. The reproduced teacher model itself showed faulty behavior (10/10 incorrect predictions despite 77% accuracy).",
+    "Sinks": "While some tables were reproduced, the qualitative results (Figure 1) directly contradicted the original paper's visual claims regarding prototype similarities. Quantitative results for Claim 1 were weaker, and for Claim 3, they went against the original paper's findings. The inability to calculate PMS meant Claim 2 could not be verified. This indicates a significant lack of traceability and consistency between the original paper's reported conclusions and the reproduction attempt's findings."
+  },
+  "filename": "2023_26_article.pdf"
+}

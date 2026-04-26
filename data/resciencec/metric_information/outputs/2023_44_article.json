@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_44_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly states its research questions and the datasets used. The reproduction report explicitly outlines the claims it aims to reproduce and the (smaller) datasets it used for the reproduction, which are analogous to the original. The reproducers found the paper's overall method ",
+    "Methods": "The core algorithms (MAE architecture, masking concept, MSE loss) were sufficiently described for independent implementation. However, critical details like hyperparameter choices (learning rate, weight decay, decoder depth) and even the optimal reconstruction target (raw pixels vs. normalized pixels) did not translate directly or required significant re-tuning/deviation. The ",
+    "Experiments": "The evaluation protocols (Top-1 accuracy, fine-tuning, linear probing) are well-defined and followed. The reproducers clearly state their hardware and computational budget. However, they had to significantly change datasets, backbone size, and training epochs due to computational constraints. While they adapted these logically, the exact experimental configurations were not directly reproducible without significant resource investment, and the paper didn't provide guidance for scaling down. The need for extensive hyperparameter tuning also impacts experimental reproducibility.",
+    "Sinks": "The reproduction report clearly presents its results in tables and figures, directly comparing them to the original paper's claims and findings. The conclusions drawn are well-supported by the presented data, even when they deviate (e.g., optimal masking ratio, reconstruction target, hyperparameter tuning). The report explicitly states which claims are supported and where the results "
+  },
+  "filename": "2023_44_article.pdf"
+}

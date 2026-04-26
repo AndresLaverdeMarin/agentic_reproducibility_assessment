@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_07_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The datasets are not applicable as this is a computational modeling paper. The core assumptions and research questions are clearly stated in the original paper and were well understood by the reproducers, who did not report any issues in this regard.",
+    "Methods": "The model equations are provided, but several critical parameters and even an equation definition required significant inference, modification, or correction by the reproducers. Specifically, the time constant equation for 'n' (Tn) was mathematically problematic in the original paper, requiring modification. There was ambiguity regarding the units of 'gNa' (nS/cm² vs mS/cm²), leading to scaling. The coefficients for the 'f(h)' polynomial differed between the paper and the provided code. Reversal potentials for AMPA/NMDA were not explicitly stated and had to be assumed. Most significantly, the original NMDA/AMPA conductance values were insufficient to induce depolarization block, forcing the reproducers to scale them by orders of magnitude.",
+    "Experiments": "The experimental protocols and baselines are described, but the issues identified in the Methods section directly impacted the reproducibility of experimental parameters. The reproducers had to perform 'experimentation with different amplitudes and pulse widths' for Figure 1B and significantly scale NMDA/AMPA conductances for Figure 5 (original Figure 6) to achieve even qualitative similarity. This indicates that the experimental configurations were not sufficiently specified to allow independent reconstruction without trial-and-error and parameter modification.",
+    "Sinks": "While the reproducers achieved qualitative similarity for most figures, this required extensive parameter manipulation, unit assumptions, and equation corrections. For example, Figure 1A required 'gNa' scaling, Figure 1B required 'gNa' and pulse width modification, Figure 1C 'does not match' due to 'Tn' modification, and Figure 5 (original Figure 6) required major scaling of NMDA/AMPA conductances, leading to different depolarization block potentials. The need for such significant intervention to match the figures indicates that the reported conclusions and figures are not directly traceable to the explicitly described workflow steps and supporting evidence in the original paper."
+  },
+  "filename": "2020_07_article.pdf"
+}

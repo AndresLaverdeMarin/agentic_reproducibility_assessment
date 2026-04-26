@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_42_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 70,
+    "Methods": 70,
+    "Experiments": 70,
+    "Sinks": 70
+  },
+  "reasoning": {
+    "Sources": "The datasets were mostly available via a GitHub repository. However, the reproduction report explicitly states that the Twitter dataset used in the original paper 'differed significantly from the one found in the provided source code' and that 'additional data which was crucial to obtaining certain results' was received from the authors. This indicates that the source data was not fully or accurately specified/provided initially.",
+    "Methods": "While the core algorithms (DeepWalk, Node2Vec, FairWalk, CrossWalk) are mathematically described, the reproduction report highlights significant issues with the original paper's methodology. It states that 'the authors neglected to specify key hyperparameters, resulting in the unidentifiability of certain results' and that 'the authors were unable to respond in time for elaborating on certain implementation details'. Furthermore, the source code was 'not optimally constructed with reproducibility in mind' and had 'unfinished or inadequately executed' sections, requiring significant effort from the reproducers.",
+    "Experiments": "Evaluation protocols and some hyperparameters (e.g., embedding dimension, walk length, number of walks) were specified. However, the report explicitly mentions a 'lack of specification of random seeds and hyperparameters by the authors', which made it difficult to fully reconstruct the experimental setup. This is evidenced by the complete failure to reproduce the Link Prediction results, suggesting critical missing details in the experimental configuration.",
+    "Sinks": "The reproduction report states that Influence Maximization and Node Classification results showed similar trends to the original paper. However, for Link Prediction, the reproducers 'were unable to reproduce the results' and 'can't substantiate the claim made by Khajehnejad et al.'. This direct failure to reproduce a key finding, coupled with the general uncertainty about findings due to missing details, means that the reported conclusions are only partially supported."
+  },
+  "filename": "2023_42_article.pdf"
+}

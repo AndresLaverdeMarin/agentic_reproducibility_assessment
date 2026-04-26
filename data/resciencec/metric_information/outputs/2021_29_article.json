@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "arXiv_1911.03584v2.pdf"
+  },
+  "scores": {
+    "Sources": 0,
+    "Methods": 0,
+    "Experiments": 0,
+    "Sinks": 0
+  },
+  "confidence": {
+    "Sources": 100,
+    "Methods": 100,
+    "Experiments": 100,
+    "Sinks": 100
+  },
+  "reasoning": {
+    "Sources": "The provided REPRODUCTION_REPORT is a replication study of a different paper, 'Three-dimensional wake topology and propulsive performance of low-aspect-ratio pitching-rolling plates' by Li and Dong, not the ORIGINAL_PAPER 'ON THE RELATIONSHIP BETWEEN SELF-ATTENTION AND CONVOLUTIONAL LAYERS'. Therefore, no information regarding the sources (datasets, assumptions, research questions) of the ORIGINAL_PAPER can be found or assessed in the REPRODUCTION_REPORT.",
+    "Methods": "The REPRODUCTION_REPORT describes methods for computational fluid dynamics (Navier-Stokes equations, immersed boundary technique, PetIBM), which are entirely unrelated to the self-attention and convolutional layers discussed in the ORIGINAL_PAPER. Thus, no methods from the ORIGINAL_PAPER are reproduced or described.",
+    "Experiments": "The REPRODUCTION_REPORT details experiments related to fluid dynamics, such as grid-independence studies and effects of Strouhal number and Reynolds number on wake topology. These experiments are completely different from the vision tasks and self-attention layer evaluations presented in the ORIGINAL_PAPER. Therefore, no experimental configurations or protocols of the ORIGINAL_PAPER are reproduced.",
+    "Sinks": "The figures and tables in the REPRODUCTION_REPORT (e.g., force coefficients, wake topology visualizations) pertain to computational fluid dynamics, not to the attention maps, accuracy scores, or parameter analyses of self-attention models discussed in the ORIGINAL_PAPER. Consequently, none of the reported conclusions, figures, or tables from the ORIGINAL_PAPER are traceable or supported by the REPRODUCTION_REPORT."
+  },
+  "filename": "2021_29_article.pdf"
+}

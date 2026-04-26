@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_09_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 75,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly specifies the datasets (CIFAR-10/100, SVHN, STL-10, ImageNet), the core assumptions of semi-supervised learning (consistency regularization, pseudo-labeling), and the research questions (simplifying SSL, achieving SOTA, ablation studies). The reproduction report confirms these were well-defined, as they were able to use the specified datasets and address the research questions, even if their specific data splits for labeled/unlabeled data varied slightly from the original's experimental setup.",
+    "Methods": "The original paper provides a good overview of the FixMatch algorithm, including the loss functions (Eq 3, 4), the two types of augmentation (weak and strong), and mentions key hyperparameters and optimization strategies. However, the reproduction report explicitly states, 'The paper doesn't contain sufficient details to reproduce all the experiments. Thus, it is necessary to look for details about reproducing the experiments in the official code.' They also noted that the probability for randomly translating images in weak augmentation was not specified, requiring an assumption (0.5). This indicates that while the core method was mostly specified, crucial implementation details were missing, requiring reverse-engineering from code or inference.",
+    "Experiments": "The original paper describes evaluation protocols (error rates, accuracy, 5 different folds for variance), lists baselines, and specifies network architectures and hyperparameters. However, the reproduction report highlights several significant issues: they 'didn't reproduce 5 'folds'' due to computational limitations, leading to results without standard deviation. They also found the total training steps and epoch structure unclear and inconsistent with the paper's stated K value. Furthermore, they 'failed to confirm the result that CTAugment behaves better than RandAugment on CIFAR-10.' These points indicate that the experimental setup and conditions were not sufficiently detailed for independent reconstruction, forcing deviations and leading to unconfirmed findings.",
+    "Sinks": "The reproduction report successfully reproduced comparable error rates for CIFAR-10 across different label amounts (Table 1 in report vs Table 2 in original), and achieved better accuracy for 'barely supervised learning'. They also showed similar trends in ablation studies for confidence threshold and unlabeled data ratio. However, a key finding regarding the superiority of CTAugment over RandAugment could not be confirmed. Additionally, the inability to reproduce the 5-fold evaluation means their reported results lack the statistical robustness of the original, making direct comparison of variance impossible. While the main conclusions are generally supported, the discrepancies and limitations in reproducing the full experimental rigor lead to a 'mostly specified' score."
+  },
+  "filename": "2021_09_article.pdf"
+}

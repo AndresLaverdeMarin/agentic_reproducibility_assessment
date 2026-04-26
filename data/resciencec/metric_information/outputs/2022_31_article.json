@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_31_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 3,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 100,
+    "Methods": 75,
+    "Experiments": 90,
+    "Sinks": 100
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly states the main goal of the original paper, which is to efficiently test value alignment by constructing a minimal set of questions. It also identifies the specific settings (explicit human, explicit robot; explicit human, implicit robot) and environments (gridworlds, autonomous driving) that were targeted for reproduction. The reproducers also explored extensions like non-linear feature reward mapping and extended action spaces, indicating a solid understanding of the initial problem statement and assumptions. The original paper's abstract and introduction clearly define the problem and scope.",
+    "Methods": "The reproduction report indicates that 'comprehending different algorithms and heuristics proposed in prior works along with their mathematical formulation and reasoning for their success in the given task was considerably difficult.' Furthermore, the reproducers 'reached out to the authors numerous times via email to seek clarifications and additional implementation details.' This suggests that while the mathematical framework and high-level descriptions of algorithms (e.g., ARP matrix, heuristics like Critical States, SCOT, ARP-bb) were present in the original paper, the detailed steps, specific parameterizations, or nuances required for independent implementation were not fully explicit, necessitating author contact and significant effort to decipher.",
+    "Experiments": "The original paper provides a highly detailed experimental setup, including the types of environments (gridworlds, autonomous driving), the specific algorithms and heuristics tested, the metrics used (accuracy, false positive/negative rates, number of queries), and the parameters varied (gridworld width, feature size, action space, non-linear reward relationships, critical states thresholds). Crucially, it specifies the generation of human and robot agents (100 of each, with specific sampling and normalization). The reproduction report confirms that they 'performed exhaustive experiments with several variations to their original claims' and successfully reproduced these, even extending some aspects. The reproducers also specified that experiments were run on CPU. The only minor detractor was initial confusion with 'redundant files' in the original code base, but the experimental protocol itself was well-documented.",
+    "Sinks": "The reproduction report successfully reproduces numerous tables and figures that directly correspond to the results presented in the original paper's main text and supplementary material. The reproducers explicitly state that the techniques 'can successfully address the value alignment verification problem' and 'show high accuracy and low false positive and false negative rates,' directly supporting the original paper's conclusions. The visual and numerical alignment of the reproduced results with the original paper's reported findings provides strong evidence that the reported conclusions are traceable and verifiable."
+  },
+  "filename": "2022_31_article.pdf"
+}

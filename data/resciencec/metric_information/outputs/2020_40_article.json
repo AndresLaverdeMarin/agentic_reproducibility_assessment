@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_40_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 80,
+    "Experiments": 70,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly identifies the potential energy surface (PES) used, citing the specific publication where it was described and noting its availability as supplementary information. Key physical constants (reduced mass, rotational constants) and assumptions (neglect of vibrational motions) are explicitly stated. The research question is also clearly defined.",
+    "Methods": "The computational methods, including the formulas used (Pack, Hirschfelder, Curtiss, and Bird), the types of quadrature (Gauss-Legendre), and the division of the radial integral, are well-described and cited. The reproduction report clarifies the original software environment (g77 compiler, BLAS) and the modern one used for reproduction. However, the reproducer noted a minor code change (adding EXTERNAL statements due to a reserved word 'PARITY' in modern Fortran) that an independent reproducer would have to discover or infer, slightly reducing the score from a perfect 3.",
+    "Experiments": "The temperatures at which calculations were performed are provided in Table I of the original paper. While the original paper states that 'numerical quadrature is converged to ±0.001 cm³/mol', it does not explicitly specify the number of quadrature points used to achieve this. The reproduction report indicates that the original input files, which the reproducer (an author) had access to, 'specified... numerical parameters such as the numbers of quadrature points'. For an independent reproducer without these files, these critical numerical parameters would need to be inferred or determined through trial and error, representing a significant gap in the experimental configuration details.",
+    "Sinks": "The reproduction report explicitly states that the 'freshly compiled program, driven by the original input file, produced an output identical to the original. The numerical results are shown in Table 1.' The reproduced table is indeed identical to the original. The conclusions drawn in the original paper are directly supported by the data presented in this table and the accompanying figure."
+  },
+  "filename": "2020_40_article.pdf"
+}

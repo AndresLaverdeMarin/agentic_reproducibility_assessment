@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_53_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The research questions and general assumptions are clear. However, the reproducers had to infer or correct several crucial parameters and setup details. For instance, the normalization/denormalization coefficients were manually estimated from figures, the sensor function equation had a typo in the original paper, and the angular offset of sensors (β) needed to be changed to achieve expected behavior. The initial random walk parameters for node creation were also not fully specified, leading to issues in reproducing diverse habits.",
+    "Methods": "The core algorithms and variables are described with equations. However, the original paper did not specify the numerical integration method (reproducers used Euler with dt=0.01) or several numerical stability tricks (e.g., exponential term in distance function, epsilon for density function) which the reproducers had to infer or obtain through author contact. Crucially, the original code was not released and was found to be non-runnable, forcing a reimplementation from scratch. Many parameters required significant tuning or correction to match the original paper's results, indicating insufficient detail in their specification.",
+    "Experiments": "The evaluation protocols are generally clear. However, the reproducers faced significant challenges in replicating the experimental configurations and results. They had to extensively tune parameters (e.g., kw for Figure 3, ka for Figure 5, β and relocation frequency for Figure 7) to visually match the original figures. Most notably, the core experiment on the 'Emergence of self-organized habits' (Section 5) failed to reproduce the diverse habit patterns (square, flower, etc.), yielding only circular trajectories. This failure is attributed to underspecified 'relative rates of change' and initialization details, highlighting a lack of sufficient experimental configuration details.",
+    "Sinks": "While the reproducers managed to 'replicate' or 'quasi-replicate' some figures after substantial parameter tuning and inference, a key conclusion about the emergence of diverse self-organized habits (original Figure 8) could not be reproduced. The reproducers' own figures (Figure 13, 14) demonstrate this failure. The need for extensive inference, parameter adjustments, and even correction of original equations to match results, coupled with the failure to reproduce a central finding, indicates that the reported conclusions and figures were not sufficiently traceable to explicitly described workflow steps."
+  },
+  "filename": "2022_53_article.pdf"
+}

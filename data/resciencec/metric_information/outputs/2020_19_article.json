@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_19_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 85,
+    "Sinks": 80
+  },
+  "reasoning": {
+    "Sources": "The original paper's PDF was not open access and difficult to find initially. The datasets (random graphs) were eventually found by the authors on an old webpage/hard drive, but not easily discoverable for an independent reproducer. The research questions and assumptions were clearly stated in the original paper.",
+    "Methods": "The reproduction report highlights significant challenges in rebuilding the software environment. The authors (who are the original authors) had to recover specific, unversioned versions of SimGrid and GTNetS, along with patches and compiling instructions, from their personal archives. They also had to recreate a specific Debian Lenny environment using Docker due to kernel ABI changes. This indicates that the software and hardware resources, and detailed implementation steps, were not sufficiently specified for independent reconstruction.",
+    "Experiments": "The reproducers (original authors) only reproduced a fraction of the original experiments due to time constraints. Even with a reduced parameter set for the 'One Link' experiment, they encountered an unexplained 'Deadlock' error in one simulation. The setup required significant effort to reconstruct the specific software environment. This indicates that the experimental configurations and runtime conditions were not fully reproducible without extensive author intervention and troubleshooting.",
+    "Sinks": "The reproducers were able to recover and match specific output values for a single parameter combination and confirmed that the parsing worked for most of their reduced 'One Link' experiment set. They also obtained similar regression parameters (alpha and beta) as reported in the original paper, expressing confidence that full reproduction of figures and tables would be possible with more time. However, they did not present a full re-generation of all figures and tables from the original paper based on their reproduction."
+  },
+  "filename": "2020_19_article.pdf"
+}

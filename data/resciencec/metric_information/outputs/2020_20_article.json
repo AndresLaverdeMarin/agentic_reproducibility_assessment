@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_20_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 2,
+    "Experiments": 3,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 85,
+    "Experiments": 95,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The reproduction report states that the original datasets were not publicly shared and had to be digitized by the author. This means an independent reproducer would not have had direct access to the exact data used, requiring them to either re-digitize or request it from the authors. While the research questions and assumptions are clearly stated, the unavailability of the primary data source for independent use is a significant limitation.",
+    "Methods": "The original source code was not published or publicly archived. The author had to retrieve it from personal backups. However, for this reproduction, the author made the code available in R packages on GitHub and provided a Makefile. The author notes that an independent reproducer would have initially needed to 'study the code carefully' due to a lack of documentation or a Makefile, but these issues are addressed in the reproduction report by providing the necessary files and instructions. Thus, the methods are now mostly specified for future independent reconstruction.",
+    "Experiments": "The reproduction report provides sufficient detail for experimental setup. It specifies the software environment (R 4.0.0 and its dependencies), mentions the hardware used (laptop, mybinder.org), and includes a Makefile to regenerate the simulation results and figures. This level of detail allows for independent reconstruction of the experimental workflow.",
+    "Sinks": "The report successfully reproduces the key figures (Figures 1, 2, and 3) and Table 2 from the original paper. It explicitly compares the reproduced results with the original ones and provides reasoning for minor discrepancies (e.g., P-values and specific simulation fields due to stochasticity without a fixed seed), confirming that the statistical properties still match. The conclusions are directly supported by the reproduced figures and tables."
+  },
+  "filename": "2020_20_article.pdf"
+}

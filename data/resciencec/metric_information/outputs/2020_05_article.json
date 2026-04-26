@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_05_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 70,
+    "Methods": 70,
+    "Experiments": 75,
+    "Sinks": 75
+  },
+  "reasoning": {
+    "Sources": "The research questions and general data type (LFP from mouse hippocampus, atropine administration) are clearly stated. However, the actual datasets were not publicly available or well-archived. The reproducer, who is the original author, had to 'retrieve six complete sets of data and data-specific scripts from three of five experimental animals' with the help of a former colleague. This indicates that the specific data sources were not sufficiently specified or accessible for independent reconstruction.",
+    "Methods": "The original paper provides a good textual description of the methods, including parameters for filtering, spectral analysis, and cross-correlation. However, the reproduction report highlights significant issues with the availability and organization of the underlying code. The reproducer (original author) had to 'figure out the organization of the code files,' 'retrieve functions that were still missing' from a 'legacy folder,' and adapt code due to Matlab version changes. This fragmented and undocumented code base makes independent implementation extremely difficult, despite the textual descriptions.",
+    "Experiments": "The original paper provides detailed information on the experimental setup, animal behavior classification, drug dosage, recording durations, and data segmentation. The reproduction report confirms these parameters were followed. However, the computational environment (Matlab versions, required toolboxes, and code dependencies) was not preserved, requiring significant effort from the original author to re-establish. Only partial data (3 of 5 animals) was available for the reproduction, limiting a full replication of the original experimental scope.",
+    "Sinks": "Key findings, including the reduction of PAC, were reproduced, and the report includes a reproduced figure (Fig. 3 in the report) that corresponds to several figures in the original paper. However, this reproduction was based on partial data and required significant effort to adapt plotting code and fitting functions due to changes in Matlab graphics and toolbox availability. The reproducer also noted a 'trial-and-error period of identifying key pieces of code responsible for producing the plots' due to undocumented and outdated scripts, indicating that the process of generating figures was not straightforward for an independent party."
+  },
+  "filename": "2020_05_article.pdf"
+}

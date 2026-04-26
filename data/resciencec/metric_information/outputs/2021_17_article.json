@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_17_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The dataset generation process, including parameters for non-stationary Gaussian time-series, mean and variance distributions, and the invertible MLP transformation, was described in sufficient detail. The reproducers successfully used the original data generation code, which worked without issues. A minor discrepancy in the 'M' value for visualization figures was identified and clarified by the reproducers.",
+    "Methods": "The core algorithms (iFlow and iVAE) and their configurations were largely specified. The reproducers used the original code, but had to recreate plotting functionality, perform bug fixes, and refactor the iVAE implementation. Crucially, they identified and corrected a mistake in the iVAE's theoretical implementation (prior mean fixed to 0 instead of being a function of 'u'). The lack of specific Python library versions also made achieving exact numerical results difficult, indicating that the original specification was not fully sufficient for independent implementation without inference or debugging.",
+    "Experiments": "The main experimental setup, including evaluation metrics (MCC, log-likelihood), baselines (iFlow vs iVAE), and key hyperparameters for data generation and model training, was well-detailed and largely reproduced. However, the long training times limited the reproducers' ability to replicate all hyperparameter exploration experiments presented in the original paper's appendix. The reproducers also had to recreate the code for generating the figures.",
+    "Sinks": "The reproducers successfully recreated the main figures and tables, comparing their results to the original paper's reported values. They clearly articulated where their findings aligned with the original claims (overall MCC, geometry preservation) and where they diverged (correlation in individual latent dimensions, iVAE latent space collapse not prevalent). They also identified and discussed a significant discrepancy in the iVAE MCC score reported in the original paper versus the iVAE paper itself, which the original authors did not address."
+  },
+  "filename": "2021_17_article.pdf"
+}

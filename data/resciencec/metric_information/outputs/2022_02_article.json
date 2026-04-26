@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_02_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 80,
+    "Sinks": 80
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly identifies the datasets used (MNIST variants, ImageNet-1k(mini) as a proxy for ImageNet), the research questions, and the core assumptions (e.g., independent causal mechanisms). The original paper provides sufficient detail on these aspects, allowing the reproducers to initialize their workflow effectively.",
+    "Methods": "While the reproducers state they used the same hyperparameters and architecture, they explicitly mention making 'several changes to their code for the MNIST datasets since it gives spurious results/errors' and for ImageNet. They also had to contact the authors for hyperparameters and propose an 'additional Loss function Lssim' to mitigate perceived shortcomings in the original method. The unavailability of pre-trained classification models also forced them to train from scratch. These issues indicate that the method description was not sufficiently detailed or robust for independent implementation without significant inference and modification.",
+    "Experiments": "The reproducers faced significant challenges in replicating the experiments. They could not fully reproduce ImageNet experiments due to computational limitations, using a smaller dataset instead. They were unable to use pre-trained classification models, forcing them to train from scratch. Their reported results for MNIST and ImageNet-1k(mini) classification show significant deviations from the original paper's numbers, and they introduced a new loss function (SSIM) to try and improve results, which is a major deviation from the original experimental setup. The ablation study also showed differing values. These issues indicate that the experimental setup was not sufficiently detailed or robust for independent reproduction.",
+    "Sinks": "Many of the figures and tables presented in the reproduction report show significant deviations or outright contradict the original paper's findings, particularly regarding classification performance and out-of-distribution robustness. For instance, their own trained CGN performed 'significantly worse' on MNIST, and ImageNet-1k(mini) classification showed a large drop in test accuracy. They also had to perform new analyses (e.g., SSIM loss, heatmap plots) to understand these deviations. The fact that key quantitative results could not be reproduced, and the conclusions drawn by the reproducers often contradicted the original paper's claims, indicates a lack of clear traceability from the described workflow steps to the reported evidence."
+  },
+  "filename": "2022_02_article.pdf"
+}

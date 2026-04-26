@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_11_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 80
+  },
+  "reasoning": {
+    "Sources": "The datasets (UCSD Ped2, CUHK Avenue, ShanghaiTech) and the core research questions/claims were clearly identified. Although one dataset required frame generation, the data itself was available and the problem statement was unambiguous.",
+    "Methods": "The authors provided a codebase, but it was incomplete, only covering the 'Prediction task with Memory' variant. Reproductors had to implement other variants and infer architectural changes (e.g., skip connections, decoder input size). Crucially, hyperparameters specified by the original authors were not suitable, requiring extensive optimization, and the reproducers noted a lack of clarity on the contribution of different pipeline parts.",
+    "Experiments": "Reproducing the experiments required significant effort. Hyperparameter optimization was necessary to achieve reported scores, and the reproducers found that the original hyperparameters were not suitable for many tasks. For the ShanghaiTech dataset, the reproducers had to introduce *new supervision* to address issues with the memory module's behavior, indicating that the original experimental setup was not fully reproducible without modification.",
+    "Sinks": "While many results were within a 3% range, significant discrepancies were found for the ShanghaiTech dataset, where the memory module did not perform as intended. The reproducers had to introduce a new supervision method to achieve comparable scores, and some original conclusions (e.g., the efficacy of Test-Time Updation on complex datasets) were contradicted by the reproduction attempt. This indicates that not all figures, tables, and conclusions could be directly traced or reproduced from the original workflow."
+  },
+  "filename": "2021_11_article.pdf"
+}

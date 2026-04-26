@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_24_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 85,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The dataset (WHO MONICA Project data) and research questions are clearly described in the original paper and confirmed in the reproduction report. However, the reproducer (who is an author of the original paper) stated that they had to retrieve the data from a monograph rather than the link provided in the original paper's appendix, and that the original data files were not kept. This indicates that an independent reproducer would likely face challenges in obtaining the exact data, even though the data characteristics are well-specified.",
+    "Methods": "The original paper provides detailed mathematical formulations for the time series models, Kalman filter, and periodogram. However, the reproduction report highlights significant issues: the reproducer (an author) had to re-write large parts of the code, a key parameter ('tau') required trial-and-error due to a different parameterization and manual selection, and there was ambiguity and subjectivity in the decision-making process for adding additional seasonal components. These issues indicate that critical implementation details and parameter choices were not sufficiently specified for independent reconstruction without significant inference or re-engineering.",
+    "Experiments": "The original paper specifies many experimental parameters, including MCMC iterations (5000), burn-in (implied), convergence assessment (Geweke et al. using 'coda'), bootstrap test details (1000 resamples, alpha=0.05), and normality tests (Shapiro-Wilk). However, the reproduction report notes that the reproducer only performed the analysis for three locations instead of all 35, and the lack of a specified random seed led to minor discrepancies in results. The reproducer also mentioned a 'fiddly task of working out which macros to run and re-creating the figures and tables,' suggesting the experimental workflow was not fully clear for direct execution.",
+    "Sinks": "The reproduction report directly compares the replicated figures and tables with the original, noting similarities and explaining all observed discrepancies. Discrepancies in confidence intervals, seasonal frequencies for the combined method, and minor numerical differences are clearly attributed to specific ambiguities in the original methods (e.g., 'tau' parameterization, subjective decisions for adding seasonal components) or missing information (e.g., lack of random seed). This thorough comparison and explanation of differences demonstrate high reproducibility in this dimension."
+  },
+  "filename": "2020_24_article.pdf"
+}

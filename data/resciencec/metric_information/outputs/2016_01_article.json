@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2016_01_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 95,
+    "Experiments": 95,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The core model idea, its components, and general parameters are clearly defined in the original paper. The paper describes a computational model rather than relying on external datasets, and the research questions are well-articulated.",
+    "Methods": "The reproduction report indicates critical missing information for a fundamental equation's initialization (Eq 17), requiring consultation of another paper. There was also ambiguity regarding feedback weights (Eq 14 and 16) and challenges with the model's computational flow for general simulators, leading to the abandonment of ANNarchy. These issues point to significant gaps in the detailed specification of algorithms and parameterization.",
+    "Experiments": "The reproduction report explicitly states that task descriptions were 'minimal' and required consulting 'other resources.' Specifically, reproducers had to refer to the author's own code for details on the saccade/anti-saccade task and another external paper for the probabilistic decision-making task. The report also notes that differences in results for the saccade task might stem from 'undocumented changes in the experiments,' indicating insufficient detail in the experimental protocols.",
+    "Sinks": "The reproducers successfully reproduced key figures (their Figure 1 and 2 are reproductions of original paper's Figure 2D and 4C) and a table comparing success and convergence rates. While results for the saccade task were 'slightly worse,' the overall conclusions were confirmed, and the report indicates that the qualitative results were reproducible. This suggests that the reported findings could be largely traced and verified, despite minor discrepancies attributed to experimental ambiguities."
+  },
+  "filename": "2016_01_article.pdf"
+}

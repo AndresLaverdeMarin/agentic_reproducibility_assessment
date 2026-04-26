@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_15_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 90,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly specifies the datasets (MetaQA, WebQuestionsSP) and their configurations (KG-Full, KG-50). The reproduction report confirms using these datasets and states that the authors provided the data and pre-trained KG embedding models, allowing for a direct initialization of the workflow.",
+    "Methods": "The core algorithms (ComplEx, RoBERTa) and model architecture are described. However, the reproduction report highlights significant difficulties due to \"lack of comprehensive documentation along with missing comments\" in the provided code and the absence of explicitly shared hyper-parameters, forcing the use of \"default values\". QA models also had to be trained from scratch, indicating incomplete specification for full reconstruction without inference.",
+    "Experiments": "The evaluation metric (Hits@1), datasets, and baselines are clearly defined. The reproduction report specifies the hardware used (NVIDIA DGX-1 with 8xV100 GPUs) and provides detailed timing information. However, the lack of explicitly shared hyper-parameters, which forced the reproducers to use \"default values provided in codebase\", introduces an element of inference rather than explicit specification.",
+    "Sinks": "The reproduction report directly compares its results to the original paper's tables, explicitly stating the degree of reproduction (within ±2.4% in most cases) and detailing specific anomalies. The discussion clearly traces the reproduced figures and tables to the original claims and provides reasoning for discrepancies, demonstrating a thorough evaluation of the reported conclusions."
+  },
+  "filename": "2021_15_article.pdf"
+}

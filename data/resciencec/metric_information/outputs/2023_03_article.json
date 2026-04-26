@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_03_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 85,
+    "Methods": 90,
+    "Experiments": 85,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The reproduction report indicates that most initial parameters for student populations (race, achievement, resources) were specified in the original paper's Table 1. However, a critical parameter for initializing college quality (mean and variance) was missing and had to be inferred from a different, cited paper (Reardon et al., 2016). This suggests that while much of the initial data was available, a key component for setting up the simulation environment was not fully specified.",
+    "Methods": "The methods section of the original paper was significantly underspecified. The reproducers explicitly state facing 'unspecified or inconsistent parameters' and having to 'guess the appropriate formulas' for core mechanisms like SES-based affirmative action, which they found 'not totally satisfactory'. Inconsistencies in parameter descriptions (e.g., reliability bounds, affirmative action weights) and ambiguities in model logic (e.g., quality update window, race-targeted recruiting) forced them to make assumptions. The unavailability of the original code and lack of author response further highlight the insufficient detail for independent implementation.",
+    "Experiments": "While the general experimental design, such as the number of simulation years and runs (30 years, 10 runs), was specified, the critical parameterizations for the different policy scenarios were inconsistent or missing. The reproducers had to make assumptions about parameter values due to these inconsistencies, which directly impacted their ability to quantitatively reproduce the experimental outcomes. The 'partial success' in replicating figures, with noted discrepancies in magnitudes, confirms that the experimental configurations were not sufficiently detailed to yield identical results.",
+    "Sinks": "The reproduction report consistently describes the replication of figures as 'partial success', noting that while general trends were similar, there were 'discrepancies regarding the impact of positive discrimination policies' and differences in quantitative outcomes (e.g., 'greater impact on minority students' or 'lower than the original'). This indicates that the figures and tables could not be quantitatively traced to explicitly described workflow steps, largely due to the underspecified methods and parameters that forced the reproducers to guess and infer."
+  },
+  "filename": "2023_03_article.pdf"
+}

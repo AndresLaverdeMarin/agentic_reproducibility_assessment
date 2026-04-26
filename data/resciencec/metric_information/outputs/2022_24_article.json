@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_24_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 3,
+    "Experiments": 1,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 85,
+    "Methods": 90,
+    "Experiments": 80,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The datasets used are mostly specified, including synthetic and real-world ones. However, a key parameter (BMI category thresholds for the Pokec dataset) was missing from the original paper and code, requiring the reproducers to infer or find this information externally. The research questions and claims are clearly stated.",
+    "Methods": "The core algorithms (Algorithm 1, 2, 3) are provided in pseudocode within the original paper. The reproduction report explicitly states that 'The concepts behind the algorithms were straightforward' and that the provided C++ code allowed for a 'smooth initial reproduction,' indicating sufficient detail for independent implementation of the methods.",
+    "Experiments": "While evaluation protocols and baselines are described, the runtime conditions and resource requirements are not sufficiently specified. Reproducers had to significantly reduce the scale of one experiment (Pokec dataset size and repetitions from 1,000,000 to 40,000) and heavily optimize their code (NumPy conversion) to make the experiments feasible in Python, indicating that the original experimental setup was not easily reconstructable with typical resources or without substantial re-optimization.",
+    "Sinks": "The reproduction report confirms that the reproduced figures and tables (Figure 3, Table 1, Figure 4, Table 2) are 'in line with the work of [1]' and 'mirrors the authors' results.' Any small discrepancies are attributed to randomness or minor issues, which were also noted in the original code or paper, demonstrating clear traceability of the reported conclusions and results."
+  },
+  "filename": "2022_24_article.pdf"
+}

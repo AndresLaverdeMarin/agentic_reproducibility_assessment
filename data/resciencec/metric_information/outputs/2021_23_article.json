@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_23_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 80,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The datasets (MNIST, Fashion MNIST, SST) are clearly identified with specific classes used (e.g., 3/8, 1/4/9, 0/3/4, Pos/Neg). The research questions/claims are explicitly stated in the 'Scope of Reproducibility' section of the reproduction report. The core assumptions (causal inference framework, VAE for generative model) are also well-defined. The reproducers successfully used these datasets and understood the research questions.",
+    "Methods": "The core algorithms (VAE, MI for causal influence, objective function) are well-described. Architectures for CNN and GCE models are provided in detail (Table 2, 3, 4, 5 in the reproduction report, which are likely from the original paper's appendix). However, the reproduction report explicitly states that the original code was 'unusable' and required 're-implementing from scratch.' Crucially, 'the description of Algorithm 1 is quite vague and no implementation of it was given,' forcing the reproducers to implement it themselves with 'reasonable assumptions.' The MC-estimation for information flow also required optimization by the reproducers.",
+    "Experiments": "The datasets, splits, preprocessing, software (PyTorch), and hardware (Nvidia GeForce GTX 1080 GPUs) are well-specified. Hyperparameters are provided in tables. However, the reproduction report highlights significant issues: 'computational expense was a serious issue, given the need for inefficient training steps, and re-iterating training several times for hyperparameter search.' This implies that the experimental configurations and runtime conditions were not fully optimized or clearly communicated in the original paper, leading to practical difficulties for reproducers. The vagueness of Algorithm 1 also impacts experimental setup, as reproducers had to make assumptions for its implementation.",
+    "Sinks": "The reproduction report explicitly states that they 'reproduced the framework in the original paper and verified the main claims made by the authors in the original paper.' They successfully reproduced key figures (e.g., Figure 1 in the report corresponds to Figure 3 in the original, Figure 3 in the report corresponds to Figure 5 in the original) and quantitative results (information flow, ablation study). The report also includes new tables (Table 1) and figures (Figure 5, 6, 7, 8, 9) to support their findings and extensions. The conclusions drawn in the reproduction report directly address the claims of the original paper and are supported by the reproduced and extended experimental results."
+  },
+  "filename": "2021_23_article.pdf"
+}

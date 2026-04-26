@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_14_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 85,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The datasets (SVHN, CIFAR-10) and the core research question (zero-shot knowledge transfer without data) are clearly specified in the original paper and were understood and used by the reproducers without reported issues.",
+    "Methods": "While the core adversarial algorithm is described, critical implementation details were missing from the original paper. The reproducers explicitly state they had to consult the authors' official code for WRN weight initialization, the exact calculation of attention transfer, the full generator network architecture, and the use of weight clipping. These omissions required reverse-engineering or inference, significantly hindering independent implementation.",
+    "Experiments": "Many experimental parameters, such as the number of iterations, optimizer, learning rates, and MTE calculation parameters, were provided. However, the reproducers noted that they had to infer or consult code for some crucial details, such as the batch size for baseline training and specific data augmentation strategies for CIFAR-10 across all experiments, which they found improved results. The description of training settings for baselines was less explicit than for the proposed zero-shot method.",
+    "Sinks": "The reproduction report successfully reproduces the key figures and tables (e.g., performance curves, architecture dependence table, transition error table). The reported results align well with the original paper's conclusions, despite minor numerical differences which the reproducers attribute to their data augmentation choices."
+  },
+  "filename": "2020_14_article.pdf"
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_22_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 95,
+    "Experiments": 95,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The reproduction report indicates significant issues with the specification of datasets and underlying assumptions. The original paper provided pre-processed data files, but the processing procedure was not documented, forcing reproducers to 'reverse engineer' and 'process from scratch'. Numerous assumptions had to be made regarding data encoding, standardization, shuffling, and the definition of advantaged/disadvantaged groups, which were 'inferred from the codebase' or 'assumed'. The position of the sensitive feature was also not consistently indicated. This partial specification of data sources and critical assumptions significantly hinders independent reconstruction.",
+    "Methods": "The methods section of the reproduction report highlights extensive missing details. The original paper did not specify the classifier model (forcing reproducers to 'assume' SVM) or the optimization algorithm ('assumed' Newton-CG). Many parameters (e.g., hyperparameter lambda, smooth hinge loss temperature, weight decay, step size, anomaly detector percentile) were either hardcoded in the original code without being documented in the paper or had to be inferred/assumed. Baseline attacks (Koh, Solans) were not runnable from the provided code and required 'implementing from scratch' or 'major revisions'. The original codebase was described as 'complex and hard to understand due to insufficient comments and documentation', and relied on 'outdated dependencies' requiring significant modernization. This necessitates substantial inference and re-implementation, indicating a low level of detail for independent reconstruction.",
+    "Experiments": "The experimental setup was poorly specified. The original code's early stopping criteria and maximum iterations were hardcoded and not clearly documented in the paper, leading reproducers to 'adapt' and modify this strategy. The method for selecting the 'best-performing model' was 'unclear', prompting reproducers to adopt their own approach. The original code's environment had 'conflicts' and 'outdated dependencies', requiring reproducers to contact authors and undertake significant effort to set up. The 'essential hyperparameter lambda' was missing from the original code, and the EOD metric calculation was 'found to be faulty and was consequently re-implemented'. These issues demonstrate that the experimental protocols and configurations were not sufficiently detailed for independent replication.",
+    "Sinks": "The reproduction report states that it was 'not possible to reproduce the original results from sole use of the paper, and difficult even in possession of the provided codebase'. Only three out of five main claims were supported, and even then, 'using partial re-implementations and numerous assumptions'. Claims 3 and 5 were explicitly found 'not reproducible'. The report also notes that the 'validity of the claim depends on the stopping metric of choice', indicating that the original conclusions were sensitive to unspecified experimental details. The faulty EOD metric in the original paper further undermines the reliability of the reported results. This indicates that the figures, tables, and conclusions cannot be reliably traced to explicitly described workflow steps."
+  },
+  "filename": "2022_22_article.pdf"
+}

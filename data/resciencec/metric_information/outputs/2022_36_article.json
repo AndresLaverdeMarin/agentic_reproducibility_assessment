@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_36_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 80,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly outlines the research questions and the datasets used (ETH & UCY, Trajnet++, and a crowd navigation simulator), including links to processed data. The core assumptions regarding the lack of negative examples in training data are also well-articulated in both papers.",
+    "Methods": "The report states that the original codebase was publicly available and that they reimplemented the code in PyTorch Lightning. It provides detailed descriptions of the Social-NCE loss, embedding models, and data augmentation strategies, including mathematical formulas and parameters. However, the reproducers had to contact the original authors for queries on implementation and the importance of some hyperparameters, indicating that some methodological details were not fully explicit in the original paper or code, requiring external clarification.",
+    "Experiments": "The reproduction report provides a comprehensive overview of the experimental setup, including baselines, metrics (FDE, COL, time, reward), and computational resources (Kaggle with Tesla P100-PCIE-16GB GPU). It also details an extensive hyperparameter search, listing original values, search methods, and ranges. However, the need to contact the original authors for clarification on 'the importance of some hyperparameters' suggests that some experimental configurations or parameterizations were not fully specified in the original paper, requiring additional effort or external input for complete reconstruction.",
+    "Sinks": "The reproduction report presents detailed tables (Tables 4, 5, 6, 7, 8, 9, 10) that directly compare the reproduced results (both from the original codebase and ported code) with the original paper's reported values for all key metrics (FDE, COL, Time, Reward). The report explicitly discusses which claims from the original paper were supported by their findings, providing clear quantitative evidence for each. The conclusions drawn are directly traceable to the presented data."
+  },
+  "filename": "2022_36_article.pdf"
+}

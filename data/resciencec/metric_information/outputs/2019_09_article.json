@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2019_09_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 80
+  },
+  "reasoning": {
+    "Sources": "The original paper described the generation of simulated data with univariate normal distributions and equal variances but omitted the mean and variance parameters. The reproduction report explicitly noted this omission and had to make an assumption (μ=0, σ=1) to proceed, indicating partial specification of the data source.",
+    "Methods": "The original paper described the resampling methods and provided a FORTRAN subroutine for bootstrap. However, the description of 'cross-validation' was ambiguous, leading the reproducers to explore multiple parameterizations. Additionally, the bootstrap error calculation equation had evolved, requiring the reproducers to choose the original version for replication, indicating some lack of clarity in the method specification.",
+    "Experiments": "The number of simulation runs and key resampling parameters were specified. However, the original paper's ambiguous description of 'cross-validation' led the reproducers to implement and test multiple variations. The missing mean/variance for simulated data also impacted the experimental setup, requiring an assumption.",
+    "Sinks": "The reproduction report successfully replicated the main conclusions regarding the bias of resubstitution and the precision of bootstrap from the simulation experiment. The generated figures are visually consistent with the original, although the specific smoothing method used in the original paper was not reported, requiring the reproducers to make an inference. The field data application was not replicated."
+  },
+  "filename": "2019_09_article.pdf"
+}

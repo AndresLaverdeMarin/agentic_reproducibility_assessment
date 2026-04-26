@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_18_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 85,
+    "Methods": 80,
+    "Experiments": 85,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The datasets (SAMSum) and research questions (main claims) were clearly specified. However, the reproducers had to contact the original authors to obtain the annotation guidelines, which were not present in the original paper, indicating a lack of initial specification for the human judgment collection process. They also relied on the original authors' pre-generated model outputs rather than reproducing them.",
+    "Methods": "The descriptions of the evaluation metrics and models were present, but the reproducers did not re-generate the model outputs, relying on the original authors' provided summaries. Furthermore, the reimplementation of the original paper's code for running metrics was \"relatively complex to navigate and required a fair amount of debugging,\" indicating insufficient detail for independent implementation. An amendment to coherence scoring guidelines was also necessary due to original deficiencies.",
+    "Experiments": "The reproducers largely followed the evaluation protocol, but the annotation guidelines had \"certain deficiencies\" leading to \"time-consuming decision-making.\" Crucially, the \"methodological description of the post-processing of the annotations was relatively unclear and the code calculating the inter-annotator agreement was missing,\" requiring them to contact the original authors for this essential part of the experimental configuration.",
+    "Sinks": "The reproduction report meticulously presents its own generated tables (correlations, human ratings, inter-annotator agreement) which directly correspond to the original paper's tables. It explicitly discusses the reproduction of each main claim, highlighting both successful replications and specific discrepancies, and traces these conclusions to the presented evidence."
+  },
+  "filename": "2023_18_article.pdf"
+}

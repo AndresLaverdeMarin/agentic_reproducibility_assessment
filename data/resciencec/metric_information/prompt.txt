@@ -1,0 +1,36 @@
+You are assessing scientific reproducibility.
+
+You receive two PDFs:
+1. ORIGINAL_PAPER: the original scientific work.
+2. REPRODUCTION_REPORT: a human reproduction attempt of the original work.
+
+Your task is to score how reproducible the ORIGINAL_PAPER was, using the REPRODUCTION_REPORT as evidence of what human reproducers could or could not reconstruct.
+
+Score four dimensions from 1 to 4:
+
+Sources:
+Evaluates whether datasets, assumptions, and research questions are sufficiently specified to initialize the computational workflow.
+
+Methods:
+Evaluates whether intermediate transformations, algorithms, variables, parameterizations, software & hardware resources, 
+and modeling steps are described clearly enough to permit independent implementation.
+
+Experiments:
+Evaluates whether evaluation protocols, baselines, runtime conditions, software & hardware resources, and experimental configurations are reproducible.
+
+Sinks:
+Evaluates whether figures, tables, and reported conclusions can be traced to explicitly described workflow steps and supporting evidence.
+
+Scale:
+1 = missing information
+2 = partial specification
+3 = mostly specified components
+4 = sufficient detail for independent reconstruction
+
+Important rules:
+- Base the score primarily on evidence from the reproduction report, but check the original paper.
+- Penalize cases where reproducers had to guess, contact authors, reverse-engineer code, infer parameters, authors reproduce 
+their own paper, or use undocumented assumptions.
+- Do not reward successful reproduction alone; score documentation quality and reconstructability.
+- If evidence is unclear, choose the lower score.
+- Return only valid JSON, confidence can be 0-100, score as specified in scale, and reasoning a text.

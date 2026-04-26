@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_18_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 85,
+    "Methods": 80,
+    "Experiments": 75,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The datasets and their generation process are largely specified and re-implemented. However, the reproducers noted initial ambiguity regarding the input-output data handling (full sequence vs. first few frames) which required contacting the original authors for clarification. Additionally, GECO hyperparameters for the Lagrange multiplier were missing, necessitating a grid search.",
+    "Methods": "The core architecture (encoder, Hamiltonian network, decoder) and their general structure (layers, filters, activations) are described and re-implemented. However, the interpretation of the loss function regarding the input sequence required clarification from the authors. Crucially, the GECO parameters for the Lagrange multiplier, which are vital for optimization, were not provided in the original paper, forcing the reproducers to perform a grid search.",
+    "Experiments": "The evaluation protocols (MSE), baselines, and HGN variants are largely reproduced. The data generation parameters are mostly consistent, though the image resolution used in the reproduction (32x32) differs from the original paper (64x64). The absence of GECO hyperparameters required a grid search, which is a significant hurdle. The reproducers also noted poor performance for the '5-frame inference' setup, indicating difficulty in reproducing that specific experimental result.",
+    "Sinks": "While some numerical results (MSE) are reported as 'similar' (with 30% average absolute error) and qualitative rollouts are visually comparable, the reproduction report highlights critical failures. The reproducers found that the learned Hamiltonian does not conserve energy, a fundamental property, and that the generated samples from the variational model have 'very poor quality,' directly contradicting the original paper's claims of producing 'diverse yet plausible rollout samples.' This indicates that the core scientific conclusions about the model's ability to learn and leverage Hamiltonian dynamics are not fully supported by the reproduction."
+  },
+  "filename": "2021_18_article.pdf"
+}

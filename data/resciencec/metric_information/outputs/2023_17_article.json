@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_17_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The datasets (UCI Adult Census, UFRGS GPA) and research questions were clearly specified. However, the reproduction report noted a discrepancy in the data splitting ratio (paper stated even, code used 60-40) and general deviations in hyperparameter specifications between the paper and the code, introducing ambiguity in the initial setup assumptions.",
+    "Methods": "The theoretical framework and high-level algorithm (Shifty) were well-explained. However, the reproduction report highlighted significant difficulties with the provided code, noting a lack of documentation, complex structure, hard-coded and difficult-to-find hyperparameters, and an incomplete requirements file. This required substantial reverse-engineering and inference to implement the methods.",
+    "Experiments": "The evaluation metrics (accuracy, NSF proportion, failure rate) and baselines were specified. However, the reproduction report found discrepancies in the number of trials run (paper stated 25, code used 10, 20, or 25) and interpolation factors for demographic shift bounds. The original paper also did not specify software/hardware resources, which the reproducers had to determine and document.",
+    "Sinks": "The reproducers were able to generate figures and tables that 'very much resemble' those in the original paper. They also performed statistical analyses to compare results and explicitly discussed which claims were supported (fairness guarantees) and which were not (accuracy without loss). The main difficulty was the lack of raw data from the original paper, making precise comparisons challenging."
+  },
+  "filename": "2023_17_article.pdf"
+}

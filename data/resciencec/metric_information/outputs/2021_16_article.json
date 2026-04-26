@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_16_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 80,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly specifies the datasets used (UCI Iris, Boston Housing, Heart Disease, single-cell RNA) and the core research question. The reproduction report confirms the use of these datasets and even extends the analysis to additional ones. Minor difficulties were noted regarding environment setup, but not the availability or clarity of the source data or research questions.",
+    "Methods": "While the core mathematical formulation of the algorithm (TGT, loss function) is described, the reproducers faced significant challenges in implementing the methods. They had to rewrite 'all corresponding code, including the architecture for the variational auto-encoder provided by an external package, scvis 0.1.0' due to framework incompatibilities. Additionally, they chose to analytically compute the gradient using SciPy instead of extending the original package, indicating that the original description of the VAE architecture and gradient computation was not sufficiently detailed for independent reconstruction without substantial re-engineering.",
+    "Experiments": "The reproduction report provides details on hyperparameters like 'k' and 'λ', and specifies the hardware used. However, there were notable deviations: the critical hyperparameter 'ε' was handled differently (fixed values in reproduction vs. dynamic search in original), and the clustering method was also different (K-means vs. manual selection). Furthermore, one dataset (Bipolar) was excluded from additional experiments due to computational constraints and issues with re-training, indicating that not all experiments could be fully replicated or extended.",
+    "Sinks": "The reproduction report explicitly states that the results presented in the original paper were reproducible, with only minor differences noted for the Iris dataset's coverage. The reproducers successfully generated similar figures and tables, and significantly extended the analysis with new datasets and dimensionality reduction algorithms. These new results further support the original paper's conclusions regarding TGT's efficacy and its ability to capture real signals in the data."
+  },
+  "filename": "2021_16_article.pdf"
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_26_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly specifies the research questions, models, and parameters used for the simulations (e.g., K(x), C(x,y), μ, σμ, r, σk, σc, Q, D). Initial conditions (x0 = 1, 2, 3) are also explicitly stated. The reproduction report confirms that parameters were listed in the paper, even if some 'careful reading' was required to identify them for the computational workflow.",
+    "Methods": "The core algorithms (Gillespie) and theoretical models (Markov process, linear noise approximation, canonical equation) are described in the original paper. However, the reproduction report highlights significant challenges for independent implementation: issues with software dependencies (GNU Scientific Library versions), the lack of a dynamic document for the workflow, and the need for the reproducer to infer 'just what commands had to be run' to execute the code. The report also notes that the C methods did not bind R's random number generator engines, implying a lack of full specification for random number generation, which is critical for stochastic simulations.",
+    "Experiments": "The experimental setup, including the number of replicates (10^5) and initial conditions, is specified in the original paper and confirmed by the reproducer. However, the reproduction report indicates that the 'MAX_TIME parameter has to be extended from the default setting' for certain conditions, suggesting an independent reproducer would need to infer this. Challenges with the software environment (GSL library versions) also hindered direct execution. Furthermore, the C function did not expose a random seed, meaning bit-wise identical results could not be achieved, which is a standard for computational reproducibility.",
+    "Sinks": "The reproduction report states that the R scripts intended to generate figures 'could not simply be run by themselves to create the figures.' The necessary result data files were not archived separately, and the reproducer, being the original author, had to deduce how to generate these files by running specific functions with parameters inferred from the paper's captions. This indicates a significant lack of explicit workflow steps and supporting data to trace figures and conclusions for an independent reproducer."
+  },
+  "filename": "2020_26_article.pdf"
+}

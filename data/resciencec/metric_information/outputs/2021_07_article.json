@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_07_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 95,
+    "Experiments": 95,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The datasets, assumptions, and research questions are sufficiently specified. The reproduction report confirms that 'The datasets used for the experimental setup were all provided together with their codebase' and the scope of reproducibility clearly outlines the research questions. The ground truth explanation methodology is also detailed.",
+    "Methods": "The methods are only partially specified. The reproduction report states, 'large parts of the evaluation setup were missing and differences were found between the listed configurations in the paper and the code.' and 'the main difficulty arose from the difference between the experimental configurations discussed in the paper and implemented in the code.' Reproductors had to rely on the authors' TensorFlow code as a starting point, which itself had discrepancies and was 'overly convoluted.' Key architectural details (e.g., batch normalization, pooling types) and hyperparameter settings were either undocumented, incorrect in the paper, or required clarification from the authors.",
+    "Experiments": "Experimental protocols and configurations are only partially specified. The report highlights that 'a number of steps were making assumptions that were not well documented' and 'some minor mistakes made in the original evaluation were rectified during our reproduction.' Crucially, the paper's description of AUC score calculation was incomplete, with 'Of these four considerations, only the last is mentioned in the original paper.' The efficiency evaluation method could not be extracted from the paper or codebase, requiring the reproducers to design their own. Hyperparameter settings were found to be 'oversimplified' in the paper, leading to difficulties in replication and requiring 'more hyperparameter tuning.'",
+    "Sinks": "Figures, tables, and reported conclusions are only partially traceable to explicitly described workflow steps. The reproducers found 'a large difference in the reported AUC scores' and could not directly replicate the original PGExplainer AUC scores, having to copy them for comparison. For the BA-2Motifs dataset, the PGExplainer produced 'the opposite of the expected result.' A direct error was identified in the original paper's Table 4, where 'The AUC scores for GRAD and ATT inside Tree-Grid are incorrectly copied by the authors and should be swapped.' While the relative improvement claim was consistent, the inability to reproduce exact quantitative results and the presence of errors in reported data indicate insufficient detail for independent reconstruction of sinks."
+  },
+  "filename": "2021_07_article.pdf"
+}

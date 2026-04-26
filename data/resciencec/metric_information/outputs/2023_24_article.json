@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_24_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 70,
+    "Experiments": 65,
+    "Sinks": 75
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly states its research questions regarding JME-fairness metrics, their decomposition, and optimization. The datasets used (MovieLens1M, MovieLens100k) are also clearly specified. The reproduction report confirms that the core concepts and claims were well-understood and easy to follow, indicating sufficient specification of research questions and assumptions.",
+    "Methods": "While the theoretical definitions of the JME-fairness metrics, their decomposition, and the Plackett-Luce model are well-described in the original paper, the reproduction report highlights significant issues with the provided code. Reproductors had to reverse-engineer, make assumptions, and contact authors for clarifications on crucial parts like AUC calculation and the optimization algorithm. Key parts of the code were missing, uncommented, and hard to understand, indicating insufficient detail for independent implementation.",
+    "Experiments": "The original paper provides some experimental details like datasets, patience factor (gamma), and beta ranges. However, the reproduction report states that no code was provided for baseline experiments, hyperparameters were unspecified, and dependencies were unclear. Reproductors had to make assumptions, and still failed to reproduce the optimization experiment (Claim 3) and observed significant numerical deviations (25% +/- 6% average difference in AUC) and flipped trends for some models in other results. This indicates a lack of sufficient detail for independent reconstruction of the experimental setup.",
+    "Sinks": "The reproducers were able to qualitatively reproduce the trends for some figures (e.g., Figure 1 in report vs. Figure 6 in original, Figure 3 in report vs. Figure 4 in original) and support Claim 2 regarding metric correlations. However, there were significant numerical deviations in other results (e.g., AUC values, flipped model trends in Figure 2/Table 3 comparison) and a complete failure to reproduce Claim 3 (optimization). The plotting code for figures was also missing, requiring recreation. This suggests that while some conclusions were supported, others were not fully reproducible or traceable to explicit steps."
+  },
+  "filename": "2023_24_article.pdf"
+}

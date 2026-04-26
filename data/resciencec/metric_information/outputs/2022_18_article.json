@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_18_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 3,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 90,
+    "Experiments": 80,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The reproduction report indicates that the datasets (Rotated-MNIST, Fashion-MNIST, PACS, Chest-Xray) and the core research questions/objectives were clearly specified and easy to understand. The authors provided detailed instructions and open-source code, which facilitated the initialization of the computational workflow.",
+    "Methods": "The reproduction report states that the open-source code was well-organized and most parameters were reported in the scripts, making the methods easy to follow and implement. While there was some initial ambiguity regarding the execution of alternative runs for certain tables, this was clarified through communication with the authors and did not hinder the reconstruction of the core algorithms.",
+    "Experiments": "The reproducers encountered several issues during the experimental phase, including errors in file paths, missing data generation steps, and platform-specific code problems (e.g., Windows freeze_support() error), which required debugging and modifications. Additionally, there was initial confusion regarding the interpretation of source/target values for Table 1, necessitating communication with the original authors. While hardware specifications were provided, these issues indicate that the experimental setup was not perfectly smooth or fully self-contained.",
+    "Sinks": "Most of the reported figures and tables were closely matched, and the overall conclusions regarding the performance of MatchDG relative to baselines were supported. However, the reproduction report notes quantitative differences in some results, with the reproducers sometimes obtaining 'better results' than the original paper. These mismatches required investigation by the reproducers, suggesting that the exact numerical outcomes were not perfectly traceable without additional effort."
+  },
+  "filename": "2022_18_article.pdf"
+}

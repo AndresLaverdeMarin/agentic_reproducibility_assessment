@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2017_01_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The core model equations and general parameters are clearly specified. However, the reproduction report explicitly states that time intervals for external current pulses and initial conditions for specific figures had to be inferred by visual inspection from the original paper's figures, indicating a partial specification for initializing the computational workflow for each experiment.",
+    "Methods": "The differential equations and update rules are provided. The reproduction report, however, explicitly states a deviation from the original paper's method for computing spike times (numerical integration instead of solving a polynomial equation), suggesting the original method was not fully reconstructable or easily implementable for independent implementation. The time step for numerical integration is specified.",
+    "Experiments": "The reproduction report explicitly states that crucial experimental configurations, such as time intervals for external current pulses, total simulation times, and some initial conditions for specific figures, had to be inferred by visual inspection from the original paper. This lack of explicit detail for setting up each experiment significantly hinders independent reconstruction.",
+    "Sinks": "All figures from the original paper were successfully replicated. The report explicitly describes the elements shown in each figure and notes minor differences in plotting (e.g., y-axis scale, Figure 3 orientation) while confirming the qualitative behavior. This demonstrates clear traceability to the workflow steps."
+  },
+  "filename": "2017_01_article.pdf"
+}

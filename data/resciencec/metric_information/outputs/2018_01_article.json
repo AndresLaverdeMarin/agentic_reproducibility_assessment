@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2018_01_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 85,
+    "Methods": 80,
+    "Experiments": 85,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The original paper provides a detailed description of the spike train generation, including Poisson process, firing rates, pattern insertion, jitter, and spontaneous activity. The reproduction report confirms that the spike trains were created in the same way, using parameters from the text and additional information from the authors' source code for 'equivalency'. The need to consult source code for equivalency and a missing detail for spike deletion (Fig. 5E) indicate that not all initial conditions were perfectly clear from the text alone.",
+    "Methods": "The original paper describes the LIF neuron model using SRM kernels and the STDP update rule with its parameters. The reproduction report re-implements the LIF neuron using differential equations (alpha functions) and provides the corresponding parameters, showing similar behavior. However, a critical parameter for the STDP rule, 'a+', is stated as 0.03125 in the original paper's text but appears as 2e-5 in the reproduction report's Table 2. The report explicitly states that the learning rule was 'not clearly stated in the original article' and required consulting the source code. This significant discrepancy and lack of clarity for a core algorithmic parameter leads to a lower score.",
+    "Experiments": "The evaluation protocols, including success criteria (latency, hit rate, false alarms), and the parameters for robustness tests (pattern frequency, jitter, proportion of afferents, initial weight, spike deletion) are well-defined and matched between the papers. However, the original paper used an 'event-driven' simulation, while the reproduction used 'discrete time steps'. The reproduction report notes that this difference in time step significantly affected the 'time until the pattern is found' (e.g., 700 vs 1400 discharges). Additionally, the 'source code for deleting spikes within the pattern (Fig. 5 E) was not provided', requiring inference or re-implementation for one of the robustness tests.",
+    "Sinks": "The reproduction report successfully reproduces most figures qualitatively, including the postsynaptic potential, latency development, and converged state weight distributions, and robustness curves. It explicitly compares its results to the original figures. However, quantitative differences exist, such as the longer time to convergence (1400 vs 700 discharges) due to the time step difference. The reliance on source code for some parameters and the missing detail for spike deletion for one robustness test imply that exact numerical reproduction was not fully achievable from the text alone, indicating some gaps in tracing results to explicitly described workflow steps."
+  },
+  "filename": "2018_01_article.pdf"
+}

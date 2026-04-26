@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_09_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 3,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 90,
+    "Experiments": 95,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly outlines the research questions (claims of AdaBelief) and explicitly lists all datasets used for reproduction, directly matching those mentioned in the original paper.",
+    "Methods": "While the core algorithms are defined and author-provided code was used, the reproducers explicitly state they had to perform grid searches for optimal hyperparameters in cases where they were not provided or results did not match, and even contacted the original authors for clarification. This indicates that some parameterizations were not sufficiently detailed for independent reconstruction.",
+    "Experiments": "The reproduction report clearly details the evaluation protocols, baselines, and experimental configurations, including the number of runs and learning rate schedules. Crucially, it also specifies the hardware resources (8 NVIDIA V100 GPUs) and total computational time (1096 GPU hours), which were not fully explicit in the original paper but are essential for experimental reproducibility.",
+    "Sinks": "The reproduction report successfully reproduces and presents figures and tables that directly correspond to the original paper's reported results, with explicit numerical agreement stated for key metrics. The conclusions drawn in the report are directly supported by the evidence presented from their reproduction efforts."
+  },
+  "filename": "2022_09_article.pdf"
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_03_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 3,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 95,
+    "Experiments": 85,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The natural image dataset was successfully obtained from the original authors' website, which is excellent. However, the original text images were not available, forcing the reproducers to create their own. This process required significant trial and error, and the reproducers noted that the results were sensitive to font and whitespace, indicating that the original text image source was not sufficiently specified or provided.",
+    "Methods": "The core algorithm (Sanger's) and all key parameters (network initialization, learning rate schedule, Gaussian window parameters, sample sizes, mean subtraction, normalization) were explicitly stated in the original paper and followed by the reproducers. The only minor deviation was in how image rotation was performed (software rotation vs. scanner rotation), but this did not affect the outcome, confirming the robustness of the described method.",
+    "Experiments": "Most experimental setups and protocols, particularly for natural images (PC extraction, orientation, variance, and scale experiments), were clearly described and successfully reproduced. However, the text image experiments presented significant challenges due to the unavailability of original data. The reproducers had to infer and modify their input data to achieve similar (though not identical) results for the text PCs, especially the word gap detector, which appeared as a different PC number and required specific text image characteristics.",
+    "Sinks": "Most figures and the main conclusions were reproduced, and the reproducers clearly documented any minor discrepancies (e.g., PC ordering, negative images, slight differences in variance plot ordering). However, the significant differences in the 'latter PCs' for text images and the need for 'further experimental modifications' to the text input to reproduce the word gap detection indicate that the original results for text images were not fully robustly derivable from the provided method description alone, especially without the original text image data."
+  },
+  "filename": "2020_03_article.pdf"
+}

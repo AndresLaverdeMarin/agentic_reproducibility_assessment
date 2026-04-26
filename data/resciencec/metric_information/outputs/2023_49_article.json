@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_49_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 85,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The reproduction report indicates that dataset generation details, such as random seeds and specific mean/standard deviation values for input normalization, were not fully specified in the original paper. Reproducers had to retrieve datasets from previous works and found discrepancies in how these were generated and normalized across different prior studies, leading to variations in training data. This required inference and external research to establish the initial conditions.",
+    "Methods": "The original paper's code was not publicly released, requiring the reproducers to re-implement most of the training pipeline based on the paper's description and open-source code from prior works. While code snippets for core functions (noise image generation and DAR-BN) were provided, the overall implementation of the method required significant independent effort and reliance on external codebases, indicating that the methods were not fully specified for direct reconstruction.",
+    "Experiments": "Crucial experimental details, including specific hyperparameters like batch size, learning rate warm-up schedule, whether effective number of samples was used, and dropout rate, were not explicitly documented in the original paper. The reproducers had to contact the original authors via email to confirm these essential parameters, which is a strong indicator of insufficient detail for independent experimental reconstruction. They also noted difficulties in matching baseline performance due to these ambiguities.",
+    "Sinks": "The reproduction report successfully validates the main claims of the original paper, explicitly stating that the key findings regarding OPeN's performance, DAR-BN's effectiveness, and robustness to augmentations were reproduced. The report provides extensive comparative tables and figures, showing close agreement with the original paper's reported results and offering further analysis to support the conclusions. This demonstrates that the reported conclusions and figures can be traced to explicitly described workflow steps and supporting evidence."
+  },
+  "filename": "2023_49_article.pdf"
+}

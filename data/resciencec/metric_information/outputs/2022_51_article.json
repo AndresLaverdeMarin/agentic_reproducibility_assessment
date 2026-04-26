@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_51_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The report highlights several 'topological discrepancies' in the original paper's computational model setup compared to the referenced experimental protocol. Specific details like landmark-platform distance, starting states, and platform positions in the simulation were either not explicitly stated in the paper, inconsistent with the provided code, or inaccurate relative to the original experiment. This required reproducers to infer and correct these crucial initial conditions.",
+    "Methods": "The reproducers explicitly state they 'were not able to reproduce their results without modifications to the original code and model parameters.' They found that 'the parameters presented in the article are different from those found in the original source code' and that neither set worked. This necessitated 'manual tuning' and a 'random grid-search' for parameters. Additionally, discrepancies were found in SR initialization, the absence of an agent placement mechanism in the code, and a claimed eligibility trace algorithm not present in the code.",
+    "Experiments": "The experimental setup of the simulation itself was not reproducible due to the 'topological discrepancies' in the simulated environment (e.g., landmark distance, starting states, platform positions) which required reproducers to modify the protocol. The original paper's parameters were insufficient to reproduce its own figures, forcing the reproducers to perform a new, extensive parameter optimization (grid-search) for their corrected protocol.",
+    "Sinks": "The reproducers could not directly reproduce the original paper's figures (e.g., Fig. 2B) using the stated parameters or the provided code. They explicitly state that 'neither those provided in the article nor in the code were able to match the article's figure.' They were only able to generate similar figures after significant re-optimization of parameters and modifications to the simulation protocol, indicating that the original figures were not traceable to explicitly described and functional workflow steps."
+  },
+  "filename": "2022_51_article.pdf"
+}

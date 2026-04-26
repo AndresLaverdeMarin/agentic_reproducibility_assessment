@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2019_01_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The research questions and general data types (e.g., natural images) are clearly identified. However, the reproducer explicitly states that 'initial weight values are not given for all experiments in the original publication' and that 'The values for the changed parameters are found experimentally.' This indicates that crucial initial conditions for the computational workflow were not fully specified, requiring inference or experimental tuning.",
+    "Methods": "The core mathematical equations for the neuron model and plasticity rule are provided. However, the reproducer had to consult the original authors' Matlab code for details on the 'homeostatic mechanism' and the 'resolution trick' for spike handling, as these were not adequately described in the paper's text. Furthermore, the reproducer explicitly states that 'Some parameters of the learning rule differ from experiment to experiment' and that they 'forced us to change the value of some parameters for some of the simulations,' indicating that parameterizations were not sufficiently detailed for independent implementation without tuning.",
+    "Experiments": "The general experimental protocols are described, and the reproducer attempted to replicate many of the original paper's experiments. However, the reproducer frequently had to 'experimentally find' parameter values to achieve similar results, and some experiments (Fig. 5 and Fig. 6 from the original paper) were explicitly not reproduced. The change in software (Matlab to ANNarchy) and its impact on the execution order also necessitated parameter adjustments, indicating that the experimental configurations were not fully reproducible from the paper's description alone.",
+    "Sinks": "Many of the original paper's figures were reproduced with 'similar' results, including voltage clamp, STDP learning window (with slight differences), frequency repetition, burst timing-dependent plasticity, connectivity patterns, and receptive fields. However, these reproductions often required significant parameter tuning by the reproducer. Crucially, two key figures (Fig. 5 and Fig. 6 from the original paper, related to network dynamics with stochastic Poisson input and moving input patterns) were explicitly not reproduced. This suggests that the reported conclusions and figures could not be fully traced to explicitly described workflow steps without additional effort and inference."
+  },
+  "filename": "2019_01_article.pdf"
+}

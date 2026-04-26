@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_25_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 85,
+    "Experiments": 90,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The datasets used were mostly specified in the original paper, but the reproducers noted discrepancies in dimensions for some datasets and had to obtain the exact versions by contacting the authors. This indicates a partial specification for independent acquisition. The research questions and core assumptions were clearly stated.",
+    "Methods": "The core algorithms were described, but the reproducers explicitly stated that 'Demystifying the specifics of constructing the projection matrix for the main algorithm the author's propose was also initially difficult until we gained access to their code.' Furthermore, they identified an undocumented parameter choice (BCG iterations) and had to infer parameters for `randomized_svd` based on the description. This significantly reduces the score for method specification.",
+    "Experiments": "The evaluation protocols (relative error, residual norm) and experimental parameters (e.g., mu, phi, k, lambda, r values) were largely clear and reproduced. The original paper's choice of baselines was limited, which the reproducers noted, but the specification of the experiments it did run was mostly sufficient for reconstruction.",
+    "Sinks": "The reproducers successfully reproduced the main results and conclusions. They explicitly state that results for Algorithm 2.1 matched 'exactly' and for Algorithm 2.2, the plots did not match 'exactly' but differences never exceeded half an order of magnitude, which they attributed to randomness. The reproduction report includes tables and figures that are directly comparable to the original paper's and confirm the original findings and trends."
+  },
+  "filename": "2022_25_article.pdf"
+}

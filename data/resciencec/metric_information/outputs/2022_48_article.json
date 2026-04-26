@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_48_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 80,
+    "Sinks": 80
+  },
+  "reasoning": {
+    "Sources": "The datasets (CIFAR-10, CIFAR-100, MNIST, ImageNet, Penn Treebank), core assumptions (sources of nondeterminism, instability), and research questions (three main claims) were clearly specified in the original paper. The reproducers confirmed that the paper's details significantly reduced the effort for setting up experimental configurations and that widely used datasets were employed.",
+    "Methods": "The algorithms (SGD, cosine LR decay, Snapshot Ensemble, TTA), hyperparameters (LR, epochs, batch size, momentum, weight decay), and software/hardware (Pytorch, NumPy, Python, NVIDIA Tesla V100 GPUs) were mostly specified. However, the reproducers noted that additional code was needed for architectures larger than ResNet-18, a portion of the code for visualization was missing, and they could not find an implementation for the CKA evaluation metric, indicating some gaps in the provided details.",
+    "Experiments": "The evaluation protocols (standard deviation of metrics, disagreement, correlation, ensemble performance) and experimental configurations were well-described. However, the reproducers found the experiments to be computationally intensive, requiring 100 models trained for 500 epochs, and they could not run multiple iterations for increased confidence. Crucially, they identified a 'computational error in the percentage of variability reduction' in the original paper's results (a 20% difference) and other 'minor anomalies' in Table 6, suggesting that some reported experimental outcomes were not perfectly reproducible without recalculation.",
+    "Sinks": "While the reproducers confirmed the main conclusions (claims 1 and 2 fully, claim 3 qualitatively), they found significant numerical discrepancies in the reported variability reduction percentages (up to 20% difference) and other minor anomalies in the original paper's tables. This indicates that some reported figures and their derivations were not perfectly traceable or accurate, even if the overall qualitative findings held true."
+  },
+  "filename": "2022_48_article.pdf"
+}

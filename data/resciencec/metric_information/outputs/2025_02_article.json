@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2025_02_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 80
+  },
+  "reasoning": {
+    "Sources": "The datasets (NBA, Pokec-z, Pokec-n) and the research claims (Claim 1, 2, 3) are clearly identified and specified in both the original paper and the reproduction report. The reproduction report explicitly states they used the same three datasets for replication (Section 3.3).",
+    "Methods": "While the high-level algorithms and mathematical formulations are present, the reproduction report explicitly states that the authors' provided code was 'not the original code they used for running the experiments' and required 'various improvements, such as setting random seeds for reproducibility, putting all the hyperparameters into a single file to make further replication and experimentation easier, adding missing functionality that was described in the paper, as well as bug fixes' (Section 3, Methodology). Crucially, 'various hardcoded hyperparameter settings in the code, many of which were not mentioned in the paper' (Section 5.2) and 'random seeds were only set for the dataset shuffling procedures and evaluation, whereas the training of the networks in the Graphair method did not have the random seed set' (Section 5.2). These omissions indicate a lack of sufficient detail for independent implementation without significant inference or reverse-engineering.",
+    "Experiments": "The experimental setup was significantly underspecified and contained critical errors in the original paper. The reproduction report highlights that the original paper's evaluation protocol was not robust enough to assess the method's stability, leading them to propose a new protocol (Section 3.4). More critically, the reported '500 epochs' for training on Pokec datasets was found to be inaccurate due to a bug in the authors' code, which incorrectly implemented mini-batch training. The reproducers had to contact the authors and infer that the intended training duration corresponded to 11,000 steps, not 500 epochs (Section 3.4, 'Longer Training Procedure'). This fundamental misrepresentation of the training procedure, caused by a code bug, severely hinders experimental reproducibility.",
+    "Sinks": "The reproduction report explicitly states that Claims 1, 2, and 3 are 'only partially reproducible' (Section 5). While the reproducers generated figures and tables mirroring the original paper (e.g., Reproduction Figures 1 & 2 for original Figures 3 & 4, Reproduction Tables 2 & 5 for original Tables 1 & 2), the numerical results and trends often differed significantly, especially for Pokec datasets and ablation studies (Section 4.1). The report highlights 'instability in Graphair's results' and 'far less decorrelation' for Claim 3, and that 'both claims could not be fully reproduced for all datasets' (Section 5). This indicates that the original paper's reported conclusions are not consistently supported by the reproduction attempt, suggesting a lack of traceability and robustness in the original findings."
+  },
+  "filename": "2025_02_article.pdf"
+}

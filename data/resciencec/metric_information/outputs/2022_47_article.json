@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_47_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The reproduction report indicates that the datasets (STRING, SHS27k, SHS148k) were clearly specified and available, and the reproducers easily understood the problem, the reasons for the new evaluation framework, and the proposed model. The research questions and core assumptions were well-articulated and directly addressed by the reproduction attempt.",
+    "Methods": "The reproducers faced significant challenges in implementing the methods. They had to make 'a lot of code changes for PIPR to train well,' perform 'manual hyperparameter search' for PIPR, and debug GNN-PPI code. Both models suffered from missing documentation, unreadable code, and incompatible environment files. Crucially, the PIPR model's building function had a 'wrong activation function on the last layer' that needed correction. These issues indicate that the methods were not sufficiently specified for independent reconstruction without extensive reverse-engineering and inference.",
+    "Experiments": "The evaluation protocols, including the new BFS/DFS splitting schemes and metrics (micro-F1), were clearly described and followed by the reproducers. However, the report highlights 'big difference between the performances' due to train-test splits and large standard deviations, suggesting that the original authors might have 'unintentionally chose the better results.' The reproducers also had to deviate from the original experimental conditions for PIPR on the STRING dataset due to time constraints (fewer epochs) and perform manual hyperparameter tuning for PIPR, indicating that the experimental configurations were not fully specified for exact replication.",
+    "Sinks": "The reproducers generated comparable tables and were able to confirm the main conclusions of the original paper, albeit with some caveats. While most claims were confirmed, some were only 'partially proved' (e.g., inter-novel-protein interaction prediction) or showed contradictory results (e.g., GCT performance being better than GCA in the reproduction, contrary to the original paper). The report explicitly discusses these discrepancies and provides reasoning, demonstrating traceability but also highlighting the variability in results."
+  },
+  "filename": "2022_47_article.pdf"
+}

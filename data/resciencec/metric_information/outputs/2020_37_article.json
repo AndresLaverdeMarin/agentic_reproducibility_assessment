@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_37_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly states the research question, the overall modeling approach (equivalent-spheres representation), and the core equations and parameters used. No external datasets are required beyond those defined within the paper. The reproducer (original author) had access to the original notebooks, which contained the initial setup. While some pre-existing methods were relied upon (e.g., for free DNA friction properties), the fundamental sources for the new approach are mostly specified.",
+    "Methods": "The paper provides the mathematical equations and describes the general steps. However, the reproduction report highlights significant challenges for independent implementation. The reproducer (original author) had to 'guess' dependencies, noted a 'neglect to add documentation for the dependencies of the notebook code,' and identified 'hidden state' issues where the execution order was not fully programmatic. Furthermore, an undocumented 'small correction' to a core function was discovered, which affected numerical results. These issues indicate that the intermediate transformations, algorithms, and workflow steps were not sufficiently detailed for independent reconstruction.",
+    "Experiments": "The software (Mathematica version 2.2) and hardware (Macintosh IIci) used for the original work are specified. The reproducer also detailed the environment and protocol for the reproduction attempt. However, the reproducer encountered runtime errors (e.g., name collision with a reserved word), had to infer how to load library functions, and discovered an undocumented 'small correction' that led to slight numerical discrepancies. The 'hidden state' issue also implies that the experimental configuration and execution were not fully programmatic or documented, requiring inference even by the original author.",
+    "Sinks": "Most figures and tables were numerically reproduced, with minor discrepancies such as differences in rounding (4 vs 6 significant figures) and slight variations due to an undocumented 'small correction.' The reproducer noted that the original figures sometimes involved external software (Cricket Graph) for smoothing, meaning the exact visual output was not fully reproducible from the Mathematica code alone. However, the underlying numerical results supporting the conclusions were largely matched, allowing the conclusions to be traced to the evidence."
+  },
+  "filename": "2020_37_article.pdf"
+}

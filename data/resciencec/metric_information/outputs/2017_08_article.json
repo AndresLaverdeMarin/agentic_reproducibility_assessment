@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2017_08_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 3,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly specifies the FWE DTI model, fixed Diso value, and the general approach. The simulated data parameters (tensor shapes, FA values, f values, SNR) are well-defined. The in vivo data is described with its acquisition parameters. The reproduction report explicitly states the model and fixed Diso, and for simulations, it uses the same acquisition parameters, ground truth trace, eigenvalues, f values, SNR, orientations, and iterations. For in vivo data, it uses a publicly available dataset, which is a good practice, and specifies the b-values used from that dataset. All necessary information to initialize the workflow was available.",
+    "Methods": "The original paper provides equations for WLLS and NLS fitting procedures. However, the reproduction report identifies two 'corrections' to the WLS equations, indicating the original equations were not perfectly clear or directly implementable without interpretation. The reproducers also changed the f grid search sampling intervals and contradicted the original paper on which objective function is used for WLLS evaluation. Furthermore, the reinitialization conditions for problematic first guess estimates were changed, and the core optimization algorithm was replaced from a 'modified Newton's algorithm' to 'scipy.optimize.leastsq' (Levenberg-Marquardt). The switch from MATLAB to Python also implies a re-implementation rather than a direct reproduction of the original code. These are significant deviations and interpretations required by the reproducers.",
+    "Experiments": "The original paper clearly defines all simulation parameters, including b-values, directions, f-values, FA values, SNR, orientations, iterations, and metrics. The reproduction report successfully replicates these simulation setups for all three simulations, matching the specified parameters and metrics. While the in vivo data source was changed to a publicly available dataset, the processing protocol applied to it was consistent with the original paper's methodology. The experimental configurations for both simulations and in vivo data processing were sufficiently detailed for independent reconstruction.",
+    "Sinks": "The reproduction report successfully generated figures and tables that are consistent with the original paper's findings. It explicitly states that its Figure 1 reproduces original Figure 5, its Figure 2 reproduces original Figure 2, its Figure 3 reproduces original Figure 4, and its Figure 4 (in vivo) reproduces original Figure 7. The text confirms consistency of results with the original paper's findings regarding FA bias, optimal b-values, and overall model performance, despite the methodological changes made by the reproducers. This indicates that the reported conclusions and results are robust and traceable to the described workflow steps."
+  },
+  "filename": "2017_08_article.pdf"
+}

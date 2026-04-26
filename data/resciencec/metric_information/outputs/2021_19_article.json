@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_19_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 1,
+    "Experiments": 3,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 85,
+    "Methods": 85,
+    "Experiments": 95,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The dataset used in the original paper required an inquiry to access the full version. More critically, the reproducers noted that 'knowing how the dataset was exactly assembled would have been beneficial for us, as we tried to retrace these steps' and that 'the accurate preprocessing of the data [is] a crucial component'. This indicates that key preprocessing steps and assumptions about the data were not fully specified, leading to difficulties in creating a comparable dataset and issues with cross-dataset generalization.",
+    "Methods": "While hyperparameters were explicitly provided and 'straightforwardly' inherited from the original paper's Table 1, the core adaptation of the Transformer architecture was 'unintuitive' and 'misinterpreted' by the reproducers. They needed to contact the original authors and inspect their provided code to understand this central algorithmic component. Additionally, an implicit detail about 'layer normalisation' instead of 'batch normalisation' was also learned from the authors. This reliance on external communication and code inspection indicates insufficient detail for independent implementation of key methods.",
+    "Experiments": "The reproduction report explicitly states that 'All hyper-parameters and training details were directly taken from the Section 3.4: Implementation details from Garnot et al. [1]'. The evaluation protocols, baselines, optimizer, loss function, number of epochs, data augmentation (Gaussian noise), and normalization steps were all clearly specified in the original paper and followed by the reproducers. They were able to achieve comparable, and even slightly better, results on the original dataset, and measured their own runtime conditions. The issues encountered with cross-dataset performance were attributed to data preprocessing rather than the experimental setup itself.",
+    "Sinks": "The reproduction report successfully generated its own tables and figures to compare with the original paper's results and illustrate architectural differences. The reproducers confirmed the validity of the original paper's approach and its results on the original dataset, even achieving slightly higher accuracy. The report clearly traces its findings back to the original paper's claims and its own experiments, providing detailed comparisons and reasoning for both successful reproductions and observed discrepancies (e.g., with cross-dataset generalization)."
+  },
+  "filename": "2021_19_article.pdf"
+}

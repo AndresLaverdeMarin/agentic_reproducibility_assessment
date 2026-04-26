@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_33_article.pdf"
+  },
+  "scores": {
+    "Sources": 0,
+    "Methods": 0,
+    "Experiments": 1,
+    "Sinks": 0
+  },
+  "confidence": {
+    "Sources": 100,
+    "Methods": 100,
+    "Experiments": 90,
+    "Sinks": 100
+  },
+  "reasoning": {
+    "Sources": "The reproduction report states that two out of three input file sets were not publicly available and the reproducer had to find 'similar file sets'. The original benchmarking scripts were also not publicly archived, requiring the original author to retrieve them from a 'dusty hard disk drive'. This indicates a severe lack of specification for the initial data and code sources.",
+    "Methods": "The original paper did not specify the exact software revisions or dependencies. The reproducer (original author) had to locate old versions of libchop, Guile, G-Wrap, Autoconf, Automake, and Libtool from 2006, and even 'backport' a fix to libchop due to crashes. This demonstrates that the intermediate transformations, algorithms, and software resources were not described with sufficient detail for independent implementation.",
+    "Experiments": "While the experimental configurations (e.g., chopping algorithms, block sizes) were listed in the original paper, the exact runtime conditions and hardware were not fully specified. The reproducer had to run the experiments on different hardware (x86_64 instead of PowerPC G4) and noted that throughput results were an 'order of magnitude higher' and space savings had 'one exception' due to different file sets and zlib implementation. This indicates partial specification of the experimental setup.",
+    "Sinks": "The reproduction report explicitly states that the figure in the original paper 'was made by hand' from the output of the scripts, not through an automated pipeline. The reproducer had to implement a parser and use a different charting library to generate new figures. Furthermore, the reproduced results for space savings were 'about the same' but not identical, with a 'noticeable exception' for one dataset, indicating that the figures and conclusions could not be directly traced to a fully reproducible workflow."
+  },
+  "filename": "2020_33_article.pdf"
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_50_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 95,
+    "Experiments": 95,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The datasets used are clearly identified as publicly available PyG TUDataset repositories. The research questions (claims) are explicitly stated. The preprocessing steps for node features are described. While there were minor issues with specific visualization details (e.g., manual diagonal update for graphons), the fundamental sources for the computational workflow are sufficiently specified.",
+    "Methods": "The core G-Mixup method's implementation was provided by the authors, and the graphon estimation method was clarified after contacting the authors. However, the reproducers had to infer details for GNN backbones and pooling methods (e.g., using PyG examples). Crucially, three out of four baseline augmentation methods (DropNode, DropEdge, Subgraph) had to be implemented from scratch by the reproducers due to missing details and code from the original authors. The M-Mixup baseline could not be implemented at all. Furthermore, hyperparameters for all baseline methods were 'picked based on intuition' by the reproducers, indicating a significant lack of specification.",
+    "Experiments": "The evaluation protocols (classification accuracy, 10 runs, train/val/test split) are mostly clear. However, the reproducers faced significant challenges with runtime conditions, requiring more powerful hardware (Google Colab Pro+, supercomputing network) due to VRAM issues, suggesting the original hardware requirements were not fully specified or were underestimated. The experimental configurations for baseline methods, including augmentation ratios, were 'guessed' by the reproducers. The inability to implement the M-Mixup baseline meant it was excluded from experiments. These issues, combined with significant discrepancies in results for most claims, indicate that the experimental setup was not fully reproducible.",
+    "Sinks": "The reproduction report explicitly states that 'many missing implementation details' led to an inability to reproduce 'all of the original results,' and that 'most results are very vague.' For most claims (3, 4, 5, 7, 8), the figures, tables, and conclusions drawn by the reproducers differ significantly from those in the original paper. For example, G-Mixup's superior performance (Claim 3) was observed in only 3/10 cases compared to 9/10 in the original, and claims about improved generalization (Claim 4) and training stabilization (Claim 5) could not be supported. This indicates that the reported conclusions and supporting evidence are not reliably traceable to explicitly described workflow steps."
+  },
+  "filename": "2023_50_article.pdf"
+}

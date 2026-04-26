@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_02_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 85,
+    "Methods": 80,
+    "Experiments": 85,
+    "Sinks": 75
+  },
+  "reasoning": {
+    "Sources": "The reproduction report states that the two concept learning tasks (letter arithmetic and number game) were identified. For the letter arithmetic task, a minor typo in the original paper's description of the number range was clarified. However, for the number game, the exact definition of the concept space was ",
+    "Methods": "The reproduction report explicitly states that significant parts of the belief update, planning algorithm, and specific details of learner models (especially the discrete memory model) were unclear in the original paper. Reproductors had to discuss open questions with the original author, deduce information from referenced papers, and reverse-engineer certain aspects. The report even provides explicit formulas and algorithms that were missing or ambiguous in the original paper, indicating insufficient detail for independent implementation.",
+    "Experiments": "Most experimental configurations, such as the number of simulations, assessment phases, termination conditions, cost function parameters, noise parameters, lookahead horizons, sampled actions, and particle/memory sizes, were successfully identified and replicated. However, the reproducers explicitly deviated from the original paper by not enforcing the 3-second computation time limit, which was a constraint in the original human experiments and could impact results. Additionally, the random policy's sampling strategy was modified, though this was explicitly stated and justified.",
+    "Sinks": "The reproduction report indicates that while the overall structure of the results for the letter arithmetic task was comparable, there was one notable deviation for the memoryless learner with the memoryless policy. For the number game, the report explicitly states "
+  },
+  "filename": "2020_02_article.pdf"
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_10_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 75,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The reproduction report indicates that datasets (FFHQ, LSUN Car, CelebA-HQ, Wikiart, Horse, Cat) and pretrained models for StyleGAN and StyleGAN2 were clearly specified and accessible. The research questions and claims to be validated were also explicitly stated. The reproducers successfully initialized their workflow for StyleGAN/StyleGAN2 models.",
+    "Methods": "The paper provided detailed explanations of the mathematical concepts and algorithms (PCA in latent/feature space, layer-wise perturbation), which allowed the reproducers to reimplement parts of the code in a different framework (Tensorflow 1.x) using existing APIs. However, a significant limitation was the inability to access intermediate layers of the BigGAN model due to a lack of open-source Tensorflow 1.x APIs, preventing full independent implementation for BigGAN. Additionally, differences in random number generators across environments led to 'minute differences' in generated images, indicating a lack of precise specification for exact numerical reproduction.",
+    "Experiments": "The reproducers specified their hardware and software environment and successfully recreated modified images for StyleGAN and StyleGAN2 models, given the configuration parameters. They also performed additional experiments. However, they explicitly state they 'were not able to replicate the author's experiments on BigGAN512-deep due to time constraints' and due to the aforementioned API limitations. This means a substantial portion of the original paper's experimental results (those involving BigGAN) could not be reproduced. The minor differences in background artifacts for StyleGAN/StyleGAN2 also suggest that exact numerical reproducibility was not achieved.",
+    "Sinks": "The reproduction report confirms that most figures and conclusions related to StyleGAN and StyleGAN2 were successfully reproduced and verified. The reproducers explicitly state they 'were able to reproduce the results and verify the claims' and refer to specific figures (e.g., Figure 3, 4, 5, 7) to support their findings. They also generated new results consistent with the paper's methodology. However, the inability to reproduce BigGAN experiments means that figures and conclusions pertaining to BigGAN models could not be supported by the reproduction attempt."
+  },
+  "filename": "2022_10_article.pdf"
+}

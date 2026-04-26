@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_28_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 3,
+    "Experiments": 3,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 100,
+    "Methods": 95,
+    "Experiments": 95,
+    "Sinks": 100
+  },
+  "reasoning": {
+    "Sources": "The reproduction report explicitly states that the original authors made their R scripts, connectivity matrix, and experimental datasets fully accessible on GitHub. This allowed the reproducers to directly access and use the necessary data (Allen Brain Atlas for connectivity and Snca expression, and the authors' p-a-syn dataset) to initialize their computational workflow. The research questions were clearly understood and targeted for replication.",
+    "Methods": "The original paper clearly describes the mathematical formulation of the network diffusion model, including the calculation of the Laplacian matrix and the seed vector. It also details how Snca expression is incorporated by weighting the adjacency matrix. The reproduction report successfully re-implemented this model in Python, explicitly stating the mathematical equations and parameter definitions, confirming that the descriptions were sufficient for independent implementation.",
+    "Experiments": "The original paper provides clear descriptions of the evaluation protocols, such as how the time constant 'c' was fitted (maximizing Pearson's correlation) and the methodology for split-reliability tests and control experiments (random seeding, shuffled matrices). The reproduction report confirms that these protocols were followed and successfully replicated, including the specific time points (1, 3, 6 MPI) and the software environment (Python packages) used.",
+    "Sinks": "The reproduction report successfully reproduced the key figures and quantitative results from the original paper. Specifically, their Figure 1A-C replicates original Figure 4a, and their Table 2 shows exact matches for Pearson's correlation coefficients and 'Best c' values. Their Figure 2F-H replicates original Figure 4f, with Table 3 again showing exact matches. Furthermore, their Figure 3A-B replicates original Figure 5a-b (in silico seeding). The report explicitly states that a 'perfect replication, both qualitatively and quantitatively' was achieved for the targeted results, demonstrating clear traceability of the reported conclusions to the workflow steps."
+  },
+  "filename": "2021_28_article.pdf"
+}

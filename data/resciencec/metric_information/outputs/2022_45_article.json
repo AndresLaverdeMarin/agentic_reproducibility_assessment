@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_45_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly states the research questions and the datasets used (Mutagenicity, MNISTSuperpixels). The original paper provides detailed information on the datasets, including their properties and purpose. The reproducers were able to identify and use the specified datasets and understand the core research questions.",
+    "Methods": "The reproducers explicitly state that 'some alterations made by us were necessary to be able to use it' and that 'it was difficult to understand and determine how the different modules worked together.' They also noted that 'the instructions within this extensive codebase did not perfectly align with the method as proposed in the original paper.' This indicates that the method description was not sufficiently detailed or clear for independent implementation without significant reverse-engineering or guessing, despite the availability of code. Issues with hyperparameters also affected performance.",
+    "Experiments": "The reproducers faced several challenges: they had to make 'alterations' to the original code, only reproduced on one of three datasets due to 'long training times,' and found 'unclear aspects of the AUC computation.' Crucially, they discovered that the original paper's explainer training used a problematic train-test split where 'the training set is always a subset of the test set.' These issues indicate that the experimental setup and protocols were not sufficiently specified or were flawed, requiring significant effort and inference from the reproducers.",
+    "Sinks": "The reproducers state that the RCExplainer's performance on fidelity and robustness 'corresponds with the results of the original authors' and efficiency 'also corresponds to the original result.' However, they also note that the performance of baselines (RCExp-NoLDB and PGExplainer) 'differed' from the original paper, which they hypothesize is due to hyperparameters. Furthermore, concerns were raised about the 'positive bias' in the AUC computation. While the core claims for RCExplainer itself were largely reproduced, the discrepancies in baseline performance and issues with metric computation suggest that not all reported conclusions are fully traceable to explicitly described and perfectly reproducible workflow steps."
+  },
+  "filename": "2022_45_article.pdf"
+}

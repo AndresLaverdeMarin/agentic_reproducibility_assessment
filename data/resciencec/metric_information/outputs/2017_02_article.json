@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2017_02_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 85,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The core model (differential equations) is provided, but crucial details for initializing the computational workflow, such as the exact input functions for K+ and glutamate, and the necessity of an equilibration phase, were not explicitly specified in the original paper. These had to be inferred or obtained through author correspondence.",
+    "Methods": "The original paper provided the differential equations and parameters. However, the reproduction report identified numerous typographical errors in the equations, missing definitions for variables (e.g., JCa), incorrect parameter citations, and missing details on how certain terms should be applied (e.g., multiplication by µm). These required extensive cross-referencing, author contact, and inference to correct.",
+    "Experiments": "Key experimental setup details were missing, including the precise input functions for neural stimulation and drug application, and the critical 20-second equilibration phase. The reproducers also had to determine solver tolerances (atol, rtol) by trial and error. These omissions made independent reconstruction of the experimental conditions challenging.",
+    "Sinks": "Despite significant effort, including correcting numerous errors and contacting the original authors, the reproduction report shows notable discrepancies in many of the reproduced figures (e.g., astrocyte membrane potential, perivascular K+ concentration, astrocyte currents, perivascular calcium). This indicates that the reported conclusions and figures cannot be fully traced to explicitly described workflow steps due to missing or incorrect details in the original documentation."
+  },
+  "filename": "2017_02_article.pdf"
+}

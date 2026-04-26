@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2026_02_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 100,
+    "Methods": 90,
+    "Experiments": 95,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The original paper describes the general type of data used (e.g., points from digitizing tablets, scanned bitmaps) but provides no actual datasets or code. The reproduction report explicitly states that they had to create their own data, albeit in the spirit of the original paper, using specific fonts and image extraction methods. This indicates a lack of sufficient detail for independent reconstruction of the exact input sources.",
+    "Methods": "The core algorithms (least-squares curve fitting, Newton-Raphson for parameter adjustment, dynamic programming for knot selection) are well-described in the original paper with mathematical formulations. However, several key methodological choices for preprocessing steps were not fully specified. For instance, the original paper did not detail the polygonization method for selecting potential knots (reproducers used Ramer-Douglas-Peucker) or the exact size of the sliding window for tangent estimation (reproducers chose 5-25 points). These required inference and specific choices by the reproducers.",
+    "Experiments": "The original paper provides very few concrete experimental configurations or parameter values. Critical parameters such as the tolerance for polygonal approximation (epsilon), the regularization parameter (tau) for dynamic programming, and specific stopping thresholds for iterative processes were largely unspecified. The reproduction report details the specific values and ranges they used for these parameters, often noting that these were inferred or chosen through experimentation (e.g., 'epsilon = 1, 0.5, or 0.25', 'sliding window with 5 sample points', 'tau is delicate'). This required significant effort from the reproducers to determine suitable experimental setups.",
+    "Sinks": "The reproduction report successfully generated figures that are visually comparable to those in the original paper, demonstrating the method's capabilities for fitting curves to typographic glyphs. They explicitly state that they reproduced the G glyph from the original paper's image and show similar results for other glyphs (C and S) under various parameterizations. While exact numerical comparisons are not provided (which would be difficult without original data), the qualitative results align well with the original paper's conclusions and figures."
+  },
+  "filename": "2026_02_article.pdf"
+}

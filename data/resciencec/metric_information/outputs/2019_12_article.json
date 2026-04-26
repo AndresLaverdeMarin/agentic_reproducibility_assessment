@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2019_12_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 75,
+    "Sinks": 80
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly specifies the mathematical models (equations 1-4) and the parameters used for the simulations. The research question, which challenges a previous conclusion about natural enemies, is also explicitly stated. The reproduction report confirms that the mathematical formulation used was the same as in the original paper.",
+    "Methods": "The core mathematical equations and most parameters are well-defined in the original paper. However, the reproduction report notes that the calculation for 'S' (survivors from parasitism) required deduction from their own interpretation. More significantly, the specific pseudo-random number generator (PRNG) used for stochastic elements was not specified, which the reproducers identify as a source of discrepancies in their results. This lack of detail for the stochastic component means not all intermediate transformations were fully explicit.",
+    "Experiments": "While the general evaluation protocol (plotting k-values against host density) and the number of generations (fifty) are clear, the critical details for reproducing the stochastic simulations are missing. The reproducers explicitly state they 'did not find the exact same dynamic' for stochastic models and had to hypothesize about potential errors in the original implementation, parameter values, or the unspecified PRNG. They even adjusted a parameter ('h') to get closer results, indicating insufficient detail for independent reconstruction of the exact experimental conditions for stochastic runs.",
+    "Sinks": "The reproduction report successfully replicated the core figures for the deterministic models (their Figures 1 and 2 correspond to original Figures 3 and 4). For stochastic models, the results were 'very similar' but not 'exact same dynamic' (their Figures 3 and 4 correspond to original Figures 5 and 6). However, the reproducers explicitly chose not to reproduce original Figures 1, 2, and 7, stating they were 'not necessary.' While their reasoning might be valid for their specific goal, it means not all figures from the original paper were reproduced. The discrepancies in stochastic results and the non-reproduction of several figures lead to a score of 2."
+  },
+  "filename": "2019_12_article.pdf"
+}

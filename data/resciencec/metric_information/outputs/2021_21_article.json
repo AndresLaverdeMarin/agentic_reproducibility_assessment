@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_21_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly outlines the scope of reproducibility, including the specific research questions and the datasets (CIFAR-10, CIFAR-100) and models (WRN-22-2, ResNet-50) used. It also notes that the original paper provided a clear description of the algorithm and its objectives. While the reproduction's scope was limited to smaller datasets than the original paper's full evaluation (e.g., excluding ImageNet), the sources for the reproduced parts were sufficiently specified.",
+    "Methods": "The reproducers implemented RigL from scratch in PyTorch, relying on the original paper's description, which they found thorough and clear. They detailed the mask initialization strategies (Uniform, ER, ERK), pruning strategy (cosine annealing), and growth strategy (gradient-based). However, they needed to refer to the authors' code for specific implementation details like handling overflow in ERK initialization and found verifying baselines tricky due to ambiguities in optimizer buffer sparsity. They also had to communicate with the original authors for clarification on FLOP counting procedures, indicating some aspects of the method were not fully explicit in the paper.",
+    "Experiments": "The report provides detailed experimental settings, including datasets, training epochs, optimizer (SGD with momentum), data augmentation, learning rate schedules, and specific hyperparameters (alpha, deltaT). It also lists the baselines used and the computational resources (GTX 1080 GPU, VRAM, compute time). However, the reproducers noted that tuning hyperparameters was compute-intensive and verifying baselines was tricky due to unclear specifications regarding optimizer gradient/momentum buffers. The need to contact authors for FLOP counting specifics also points to some missing details in the experimental setup.",
+    "Sinks": "The reproduction report successfully reproduces the central claims of the original paper, stating that RigL's performance on CIFAR-10 was reproduced within 0.1% of the reported value. The report presents tables (Table 1, 2, 3, 4, 5) and figures (Figure 1, 2, 3, 4, 5) that directly support these claims and compare RigL's performance against baselines and different configurations. The conclusions drawn in the discussion section are well-supported by the presented results, including new findings beyond the original paper."
+  },
+  "filename": "2021_21_article.pdf"
+}

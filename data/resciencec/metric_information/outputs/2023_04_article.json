@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_04_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly identifies the datasets (PASCAL VOC 2007 and MS COCO 2014) and the core research question (integrating knowledge graphs into object detection to improve recall while maintaining mAP). The methodology was conceptually easy to understand, as stated by the reproducers.",
+    "Methods": "The original paper lacked crucial details regarding the implementation of the framework, including specific parameter values (e.g., the final epsilon value) and how certain class probabilities were handled. The reproducers had to contact the authors for these missing details and made assumptions due to the absence of source code. Additionally, the reproducers initially used a different backbone model (ResNet50 instead of VGG-16) due to availability, indicating a deviation from the original setup.",
+    "Experiments": "While the evaluation protocols and metrics (mAP, recall@100) were clearly described, the experimental setup suffered from the same issues as the methods. Crucial hyper-parameters and baseline parameters were not fully specified in the original paper, necessitating author contact for clarification. The change in backbone models and the need for author communication for parameter values indicate that the experimental configuration was not sufficiently detailed for independent reconstruction.",
+    "Sinks": "The reproduction report successfully generated tables that directly compare to the original paper's results, indicating that the structure and type of reported sinks were traceable. However, the numerical results in these tables and, consequently, the conclusions drawn by the original paper (e.g., maintaining mAP while increasing recall) were not replicated by the reproducers. This suggests a lack of reproducibility in the experimental outcomes rather than a lack of clarity in how the original paper presented its results."
+  },
+  "filename": "2023_04_article.pdf"
+}

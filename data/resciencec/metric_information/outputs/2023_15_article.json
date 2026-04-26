@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_15_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 75,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The reproduction report explicitly states that the original paper was 'well-structured' and the code 'well-organized and with clear instructions', allowing them to understand the problem, solution, and claims. They clearly identified the four main claims as their scope and used the specified datasets, indicating sufficient detail to initialize the workflow.",
+    "Methods": "The reproducers reused and extended the authors' code, but noted 'minor fixes (missing statements to load libraries, and inconsistent function calls)' were required. They also found it 'difficult to extrapolate some of the authors' proposed techniques to datasets other than those used by them' (e.g., graphs and text), suggesting that the method descriptions were not fully generalizable or complete for new domains without inference or author contact. The CIFAR-10 discrepancy also points to some unspecified detail in the original method setup.",
+    "Experiments": "While most experiments were reproduced, the report explicitly states that the results for CIFAR-10 feature importance were 'not reproducible', and the exact reason could not be found despite author contact and explorative experiments. Additionally, the Influence Function method was found to be 'time-consuming' (18 hours for 1000 time-series samples), which is a practical limitation for independent reconstruction. The difficulty in extrapolating to new datasets for additional experiments also indicates some lack of clarity in experimental configurations for broader application.",
+    "Sinks": "The reproduction report directly addresses each of the original paper's four main claims, explicitly stating whether they were reproduced or not, and providing supporting evidence from their own generated figures and tables. They clearly compare their results (e.g., Figure 1, 2, 3, 4 in the report) to the original paper's findings and discuss discrepancies and generalizability, demonstrating a thorough tracing of the reported conclusions."
+  },
+  "filename": "2023_15_article.pdf"
+}

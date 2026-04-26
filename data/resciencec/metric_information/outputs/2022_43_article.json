@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_43_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The datasets (Adult, Credit Approval) and the overall research questions are clearly specified. However, a critical input/assumption, the underlying DAGs, was problematic. The reproducers found mismatches between the provided DAGs and the paper's figures/variables, forcing them to manually input graphs from the paper. This indicates a partial specification of the exact causal structures used.",
+    "Methods": "The high-level DECAF method is described, but critical implementation details were either missing, contradictory, or led to uninterpretable results. Reproducers had to make substantial changes to preprocessing (standardizing all variables with MinMaxScaler), label generation (original code did not generate labels as described), and the downstream classifier (using MLP instead of XGBClassifier). The provided code was incomplete and did not match the paper's description in key areas, requiring significant inference and deviation.",
+    "Experiments": "While the general experimental setup (datasets, metrics, repetitions) is outlined, the specific implementation of critical evaluation metrics (FTU, DP calculation) was contradictory and led to non-comparable numerical results. The reproducers explicitly state that their calculations for FTU and DP did not match the original paper's, even with additional files from the authors. Furthermore, the second experiment was largely unreproduced due to significant setup changes and contradictory results.",
+    "Sinks": "The numerical results presented in the reproduction report's tables and figures largely do not match those in the original paper, especially for fairness metrics and the second experiment. The reproducers explicitly state that numerical figures do not match with satisfactory precision, and the results for the second experiment are in direct contradiction. This makes it difficult to trace the original paper's conclusions about bias removal and data utility to the reproduced evidence."
+  },
+  "filename": "2022_43_article.pdf"
+}

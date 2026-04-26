@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_10_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 70,
+    "Experiments": 85,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The datasets (MNIST, CelebA, CIFAR-10) are standard and clearly identified. The preprocessing steps are detailed in the reproduction report, largely following the original paper, with minor, well-documented assumptions for unspecified details (e.g., bilinear interpolation). The research questions are well-understood and clearly stated.",
+    "Methods": "The core algorithms (score matching, Langevin dynamics) are described. However, the network architectures, especially RefineNet, were ambiguously described, requiring the reproducers to make numerous assumptions, consult the authors' code, and make compromises on details like dilated convolution rates, downsampling, and filter configurations. Crucially, hyperparameters for the toy example's Langevin dynamics were incorrectly reported in the original paper, necessitating external consultation.",
+    "Experiments": "Evaluation protocols (IS, FID) and runtime conditions (optimizer, LR, batch size, iterations, hardware) are mostly well-specified. However, there was a deviation in checkpoint saving frequency and the number of samples used for FID evaluation during model selection, which the reproducers suggest might contribute to the quantitative discrepancies. The original paper also incorrectly reported hyperparameters for a toy experiment, which affected reproducibility.",
+    "Sinks": "The reproduction report clearly presents both qualitative (visually good samples and inpaintings) and quantitative results (significantly worse IS/FID scores for CIFAR-10). The conclusions drawn are well-supported by the evidence, explicitly stating where reproduction succeeded and failed, and offering plausible reasons for discrepancies. The quantitative results for CIFAR-10 were not comparable to the original paper."
+  },
+  "filename": "2020_10_article.pdf"
+}

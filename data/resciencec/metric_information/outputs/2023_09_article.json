@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_09_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The reproduction report states that the paper clearly outlines the structure of the datasets and how they were compiled, and that the code and data are available. The reproducers used the provided datasets and even extended them with a new Italian dataset. The research questions and assumptions are clearly articulated in the original paper.",
+    "Methods": "The reproducers relied on the existing codebase but had to modify it, integrate additional scripts, and re-implement a script for statistics computation that was not included. Crucially, they noted a 'lack of information about the version of the libraries being used' and encountered 'minor bugs', which required contacting the authors. This indicates that while the core methods were described, critical implementation details and software environment specifications were missing or unclear.",
+    "Experiments": "The reproduction report states that the results were only 'partially' reproduced, with 'a number of discrepancies across English, Spanish and Portuguese'. A key reason for this was that 'the original contribution does not specify the version of the Transformers library [...] being used and that we likely rely on a more recent version to carry out our experiment.' This lack of specific software versioning is a significant barrier to experimental reproducibility, leading to differing results.",
+    "Sinks": "While the overall hypotheses formulated in the original paper were corroborated, the numerical results (scores in tables) were not fully reproduced. The report explicitly mentions discrepancies in accuracy scores for BERT and fastText models across English, Spanish, and Portuguese. Therefore, the figures and tables, which are direct sinks of the experimental workflow, could not be fully traced and reproduced with the exact reported values."
+  },
+  "filename": "2023_09_article.pdf"
+}

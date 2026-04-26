@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_41_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 85,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly specifies the research questions regarding VAE approximation errors and posterior collapse, and details the datasets used for each experiment (Gaussian mixture model for artificial, CelebA for image, 20Newsgroups for text). The reproduction report confirms these aspects, indicating that the sources were sufficiently specified.",
+    "Methods": "For the synthetic experiment, the methods were implemented from scratch and well-described. However, for the more complex CelebA and semantic hashing experiments, the reproducers explicitly state they used 'authors' code' or 'code provided by the author' for significant parts of the implementation. This reliance on external code, along with the 'What was difficult' section mentioning the need for probabilistic modeling skills, indicates that the methods were not fully specified for independent reconstruction from scratch.",
+    "Experiments": "The experimental setups, including hyperparameters, optimizers, training steps/epochs, batch sizes, and computational resources (CPU/GPU types and hours), are largely detailed in both papers. The reproduction report provides specific values and confirms the protocols. While some parts relied on author-provided code (a method issue), the experimental configurations and evaluation protocols themselves were mostly clear enough to follow.",
+    "Sinks": "The reproduction report successfully reproduces the qualitative figures for the artificial example and provides tables comparing ELBO and FID scores for CelebA, and NELBO values for semantic hashing, directly against the original paper's reported results. The conclusions drawn align with the original paper's findings, and the reproducers even improved upon one result, demonstrating a thorough understanding and verification of the reported outcomes."
+  },
+  "filename": "2023_41_article.pdf"
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2022_38_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The reproduction report explicitly states that the synthetic datasets were not 'exhaustively described' in the original paper, requiring the reproducers to conduct a 'thorough study and description'. Furthermore, the reproducers found that the data generating processes (DGPs) were 'very prone to generating trees that could not be simplified any further', which 'casts doubt on the claims' made in the original paper. This indicates significant missing information and issues with the specified data sources.",
+    "Methods": "While the provided code was well-documented, the report notes that 'it would have been very difficult to reproduce the exact implementation of GEN and the presented DGPs by reading the paper alone'. A crucial baseline model was initially 'not provided in the repository' and, once supplied by the authors, 'encountered runtime errors', requiring debugging by the reproducers. This highlights a lack of sufficient detail in the paper for independent implementation and issues with provided code.",
+    "Experiments": "The report identifies the original paper's 'method of risk estimation' (training/testing split) as 'potentially problematic', leading the reproducers to implement 'alternative methods'. The missing and buggy baseline model also impacted experimental reproducibility. Although hyperparameters were mostly specified, the practical aspect of running the code was 'prohibitively expensive', and the 'lack of transparency about the code base's runtimes' made the work difficult.",
+    "Sinks": "The reproducers confirmed most of the original claims (i-iii) but directly contradicted claim (iv) regarding the scaling of backward passes. More significantly, the report expresses 'scepticism of the chosen experiments' suitability to evaluate the model's performance' and notes that some reproduced results were achieved despite the model 'not able to optimize its loss function correctly'. This indicates that even when numerical results were matched, the underlying conclusions are not robustly supported due to flaws in experimental design and model behavior."
+  },
+  "filename": "2022_38_article.pdf"
+}

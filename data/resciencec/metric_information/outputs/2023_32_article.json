@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "ORIGINAL_PAPER.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 50,
+    "Experiments": 50,
+    "Sinks": 50
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly specifies the datasets (RFW, BFW, IJB-C), their attributes, and the overall research claims. The reproduction report confirms that these aspects were clear and easy to understand, forming a solid basis for the reproduction attempt.",
+    "Methods": "The original paper provided some details on the FairCal method and other baselines, but crucial steps like image preprocessing and embedding generation (especially for ArcFace) were not sufficiently detailed. The reproducers had to re-implement code from scratch, faced significant difficulties with the ArcFace model, and needed to contact the authors for clarification on unmentioned hyperparameters. This indicates partial specification and significant effort required for independent implementation.",
+    "Experiments": "While the evaluation protocols and metrics (AUROC, KS, AAD, MAD, STD, TPR at fixed FPRs) were clearly described and easy to implement, the reproducers encountered ambiguities in the cross-validation setup (how folds were used). More critically, they faced significant issues reproducing results for the ArcFace model and FTC, leading to large discrepancies. This suggests that the experimental configurations or runtime conditions were not fully specified or easily replicable, requiring inference and leading to failed reproduction of specific results.",
+    "Sinks": "The reproducers were able to generate the structure of the tables and figures, but the numerical results within them often deviated significantly from the original paper across all main tables (accuracy, fairness calibration, predictive equality). Although the reproducers qualitatively confirmed the original claims, the quantitative evidence was not consistently reproduced. This indicates that the reported conclusions are not fully traceable to independently reconstructed numerical evidence."
+  },
+  "filename": "2023_32_article.pdf"
+}

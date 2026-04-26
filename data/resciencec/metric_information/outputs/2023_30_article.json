@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_30_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 70,
+    "Experiments": 70,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly outlines the main claims (research questions) from the original paper and details the datasets used, including the original MSCOCO dataset with gender/race annotations and an additional age dataset created by the reproducers. The report explicitly states that the author's code and data were publicly available and easy to set up, indicating sufficient specification of sources.",
+    "Methods": "While the LIC metric calculation and hyperparameters were clearly specified and used, a critical part of the methodology, the generation of captions by the original models, could not be reproduced. The reproducers state, 'While the authors retrained all image captioning models, they did not share the model weights, making it difficult to extend upon their work.' and 'As a result, we had to use the generated captions provided by the authors instead of generating them ourselves.' This means the full computational workflow from image to caption was not independently implemented. Additionally, the code documentation was found difficult to interpret.",
+    "Experiments": "The reproduction report indicates a deviation from the original experimental setup: 'Due to limited computational resources, in this reproducibility study we only train the classifiers with 3 different seeds per model' instead of the original 10. This directly impacts the reliability of the reproduced results, as acknowledged by the reproducers. Furthermore, the inability to generate captions (as noted in the Methods section) means the entire experimental pipeline could not be fully replicated, only the bias scoring on pre-generated captions.",
+    "Sinks": "The reproduction report successfully traces the original paper's conclusions to their reproduced results. They present their own tables and figures, and explicitly state that 'Even though the numbers are different, our results support all four main claims from the original paper.' This indicates that while the exact numerical results were not matched due to experimental deviations, the overall trends and conclusions were confirmed. They also extended the work with new results for age bias."
+  },
+  "filename": "2023_30_article.pdf"
+}

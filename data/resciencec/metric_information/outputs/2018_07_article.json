@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2018_07_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 85,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The original paper identified the primary datasets (human metabolic network model, OMIM, HMDB, RBC kinetic model). However, critical details for initializing the computational workflow were missing or ambiguous. Reproducers had to infer specific medium flux bounds and manually curate gene-reaction mappings from supplementary data, which contained discrepancies, to match the original results. The exact configuration of these source datasets for the experiments was not fully specified.",
+    "Methods": "The core computational approach, including Flux Variability Analysis (FVA) and the logic for comparing exchange intervals, was described. However, specific parameterizations, such as the 'fraction of optimum' for FVA (set to zero by reproducers), were not explicitly stated in the methods section. The process of mapping genes to reactions for disease simulation also presented discrepancies that required manual curation, indicating that the method's application steps were not fully detailed for independent implementation.",
+    "Experiments": "The original paper did not specify the computational environment (software/hardware) used. Crucially, specific experimental configurations, such as the exact inward and outward flux bounds for the medium, were not reported, forcing reproducers to determine these through 'trial and error' to match the published results. Discrepancies in the provided supplementary gene-reaction mappings also necessitated manual curation to set up the experiments correctly.",
+    "Sinks": "The reproduction report states that the key figures (1A-B, 2, 3) and tables were successfully replicated in terms of numerical results and qualitative predictions. However, this achievement required significant effort in inferring missing details and manually curating input data, as noted in the Sources and Methods sections. The figures themselves were redrawn, not directly generated from code. While the final outputs match, the path to trace them to explicitly described workflow steps was not straightforward."
+  },
+  "filename": "2018_07_article.pdf"
+}

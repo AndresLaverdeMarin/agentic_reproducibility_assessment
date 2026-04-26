@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2018_03_article.pdf"
+  },
+  "scores": {
+    "Sources": 1,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The research questions and core model (Q-learning with differential learning rates) are clearly stated. However, reproducers had to infer the initial Q-value (Q0) and the specific alpha values for Figure 1, as only ratios were provided in the original paper. This indicates partial specification of initial conditions.",
+    "Methods": "The core algorithms, including the Q-learning update rule, softmax decision rule, and the meta-learning rule, are explicitly described in the original paper. The reproducers noted that the core modeling description allowed for implementation with low difficulty. The main ambiguity regarding 'probabilities of choice' versus 'proportions of implemented choices' relates more to the experimental evaluation and plotting rather than the underlying computational method itself.",
+    "Experiments": "Several crucial experimental parameters and evaluation protocols were not fully specified. Reproducers had to infer the initial Q-value (Q0), the specific alpha values for Figure 1, and the number of iterations for Figures 3 and 4. Most significantly, the method for calculating the y-axis (performance) was ambiguous, requiring reproducers to experiment with 'probabilities of choice' versus 'proportions of implemented choices' to match the 'spikiness' of the original figures.",
+    "Sinks": "The reproducers successfully reproduced the patterns of most original figures, including fine-grained details like early bumps. However, they noted a discrepancy in Figure 4A (smoother curves) and had to make inferences about how the y-axis data was processed to visually match the original figures. This suggests that while the results are traceable, the exact steps from raw simulation output to final figures were not entirely explicit."
+  },
+  "filename": "2018_03_article.pdf"
+}

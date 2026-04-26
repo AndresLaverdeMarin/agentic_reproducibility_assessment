@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_29_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 0
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The original paper clearly specifies the observational datasets (WMAP ILC and TOH five-year data, kp2 mask) and simulation methodology (GRF simulations based on C_l estimates). The reproduction report explicitly identifies these data files, provides their URLs (from the original paper's footnotes), and confirms their integrity with md5sums. The research questions and core scientific assumptions are clearly understood from the original paper's context and are the target of the reproduction attempt.",
+    "Methods": "The original paper describes the MCMC method and refers to the 'CIRCLES' software. However, the reproduction report details significant challenges in implementing these methods due to software evolution. The reproducer (the original author) encountered Fortran 77 line continuation issues, an obsoleted GSL function (requiring manual compilation of an old GSL version), and persistent Fortran-C interfacing memory bugs that ultimately halted the reproduction attempt. This indicates that the practical implementation details, specific compiler versions, and library dependencies were not sufficiently robustly specified or designed for long-term reproducibility, even by the original author.",
+    "Experiments": "The original paper provides a good description of the experimental configurations, including MCMC parameters (number of chains, steps, burn-in, convergence criteria) and simulation setup (number of simulations, point selection). The reproduction report outlines the intention to follow these protocols and specifies the hardware and compiler used for the attempt. However, due to the critical compilation and runtime failures described in the 'Methods' section, the actual experiments could not be executed. Therefore, the experimental configurations, while described, could not be verified through independent execution.",
+    "Sinks": "Due to the complete failure to compile and run the computational workflow, the reproduction report was unable to generate any of the figures, tables, or other numerical results presented in the original paper. Consequently, the scientific conclusions of the original paper could not be traced to any reproduced workflow steps or supporting evidence within the report. The report's conclusions focus solely on the challenges and failure of the reproducibility attempt itself."
+  },
+  "filename": "2020_29_article.pdf"
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_27_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 2,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 80,
+    "Methods": 85,
+    "Experiments": 90,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The core research questions and general assumptions are well-defined. However, the reliance on random number generation for network connectivity and input patterns, without explicit specification of seeds or full parameterization of background inputs, means that the exact initial state of the computational workflow is not fully specified for independent reconstruction. The original author had to use 'trial-and-error' for some background input parameters.",
+    "Methods": "The core computational models (cell and synapse equations) and the general network construction logic are well-documented, allowing the original author to run the NEURON code without modification. However, the lack of specific random seeds and some missing input parameters for specific experiments means an independent reproducer would struggle to get quantitatively identical results without trial-and-error or reverse-engineering the original author's specific random choices.",
+    "Experiments": "The general experimental protocols are well-described. However, the critical issue of missing background input parameters for specific figures (15 and 16 in the report, corresponding to 16 and 17 in the original paper) and the lack of specified random seeds for network generation mean that an independent reproducer would not be able to set up identical experimental configurations. The original author had to resort to 'trial-and-error' for these missing parameters.",
+    "Sinks": "The reproduction report clearly shows the reproduced figures and compares them to the original. While exact quantitative reproduction was not achieved for any figure (due to random seeds) and one figure (Original Figure 11) showed a significant qualitative difference, the report explicitly states that the 'scientific conclusions' of the original paper are generally supported. The figures are traceable to the workflow steps, and the differences are explained by the inherent randomness and missing parameters. The qualitative match for most figures is good, but the inability to achieve exact quantitative match and the failure for one specific figure (Original Figure 11) due to unspecified reasons (lack of time to investigate) indicates that the sinks are not perfectly reproducible from the documentation alone."
+  },
+  "filename": "2020_27_article.pdf"
+}

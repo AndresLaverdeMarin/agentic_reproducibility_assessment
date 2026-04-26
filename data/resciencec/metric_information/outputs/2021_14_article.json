@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_14_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 75,
+    "Sinks": 80
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly identifies the datasets (CIFAR-10, CIFAR-100, SVHN) and the core research questions (warm-starting gap, Shrink-Perturb method) that are aligned with the original paper. The scope of the reproduction is well-defined.",
+    "Methods": "Most of the methods, including models (ResNet-18, MLP, Logistic Regression), optimizers (SGD, Adam), and the Shrink-Perturb formula, are well-specified and implemented. However, the reproducers explicitly state that they had to contact the authors to clarify the convergence condition and other unspecified hyperparameters, and sometimes made assumptions or deviated due to computational resource limitations. This indicates some missing details in the original paper's method description.",
+    "Experiments": "The overall experimental configurations (offline/online learning, baselines) and evaluation metrics are well-described and followed. However, the reproduction report mentions deviations in the number of runs (e.g., 9 times vs. 5 times, or once vs. multiple), changes in settings to reduce computation time, and the use of varied hardware (public cloud/private GPUs) instead of the specific P100 GPU mentioned in the original paper. These deviations suggest that the experimental setup was not fully reconstructible as specified.",
+    "Sinks": "The reproduction report successfully reproduces many key figures and tables, confirming the main conclusions about the warm-starting gap and the effectiveness of the Shrink-Perturb method. However, it also explicitly notes several instances where results did not perfectly match (e.g., SVHN dataset, MLP accuracy, specific performance comparisons). The reproducers had to investigate these mismatches, indicating that the original paper's reporting was not always sufficient for exact replication of all results."
+  },
+  "filename": "2021_14_article.pdf"
+}

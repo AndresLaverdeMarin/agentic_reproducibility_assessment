@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2020_11_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 85
+  },
+  "reasoning": {
+    "Sources": "The datasets (UCR, UEA, IHEPC) and the main research questions are clearly identified in the original paper and reiterated in the reproduction report. However, reproducers had to make assumptions regarding initial data processing, such as handling missing values in UCR and IHEPC datasets, and which specific features of IHEPC were used, as these details were not explicitly provided in the original paper.",
+    "Methods": "While the core method (encoder architecture, triplet loss) is described, the reproduction report highlights several critical missing details and design choices that reproducers had to infer or assume. These include how sequence padding was handled for variable-length subseries, whether full samples or subseries were used for classification representations, and the specific architecture and hyperparameters for the ResNet baseline. The methodology for the IHEPC regression task was particularly sparse, requiring significant assumptions about the procedure, optimizer, and optimization steps.",
+    "Experiments": "Evaluation protocols and baselines are generally outlined. However, the reproduction report notes several issues: batch size adjustments were needed for some UEA datasets due to GPU memory constraints, one experiment (InsectWingbeat) could not be reproduced due to excessive runtime, and hyperparameter search for SVMs was omitted for certain datasets due to size limits without explicit guidance from the original paper. Furthermore, the IHEPC regression results showed a notable discrepancy, with reproducers observing 'unexpectedly' lower test errors for representations compared to raw values, contrary to the original paper's implicit findings.",
+    "Sinks": "Most figures and tables, particularly for UCR and UEA classification and transferability, were successfully reproduced with results closely matching those in the original paper, supporting many of the original conclusions. However, the IHEPC regression results showed a clear discrepancy, with the reproducers' findings not aligning with the authors' reported numbers. This means that not all reported conclusions could be fully traced to explicitly reproduced workflow steps leading to matching evidence."
+  },
+  "filename": "2020_11_article.pdf"
+}

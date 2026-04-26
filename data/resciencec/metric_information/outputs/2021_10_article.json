@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_10_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 85,
+    "Experiments": 80,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly states the research claims being tested and lists all datasets used (CIFAR-10, CIFAR-100, LSUN) with their sizes, classes, dimensions, and public links. The datasets were publicly available and easy to reconstruct.",
+    "Methods": "The theoretical formulation was excellent, but the reproducers found it hard to translate into an implementation without pseudocode. Crucially, details about the 'modified VGG model' and the min/max values of the cyclic learning rate were missing, leading to the reproducers having to infer or guess these parameters. For synthetic data, hyperparameters were manually searched. This indicates significant missing information for independent implementation.",
+    "Experiments": "The reproduction report provides detailed training parameters (Table 2) and computational resources (GPUs, time). Ablation studies for ensemble size and temperature were reproduced with detailed configurations. However, the missing details about the modified VGG model and cyclic LR parameters (as noted in the 'What was difficult' section) impacted the ability to fully replicate the experimental setup, leading to 'consistently worse performance' in some cases. Some OOD-detection plots were also not recreated.",
+    "Sinks": "The reproduction report meticulously compares its results (classification performance, OOD detection, ablation studies) with the original paper's findings in both tables and figures. It explicitly highlights agreements and significant discrepancies, providing clear evidence for each claim. The figures and tables are well-structured for direct comparison."
+  },
+  "filename": "2021_10_article.pdf"
+}

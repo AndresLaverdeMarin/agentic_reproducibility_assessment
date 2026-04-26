@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2016_07_article.pdf"
+  },
+  "scores": {
+    "Sources": 3,
+    "Methods": 1,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 80,
+    "Experiments": 85,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The reproduction report clearly states the research question and the specific task (devaluation experiment with two states and two actions) it aims to replicate from the original paper. The model is computational, so no external dataset is involved, and the core assumptions are directly derived from the original paper's description.",
+    "Methods": "The reproducers explicitly state that they had to source the implementation of the Kalman Q-Learning algorithm from an external paper, as it was not fully described in the original. Furthermore, they had to infer or choose values for several parameters (update rate of transition function Φ, initialization of covariance matrix, and unscented transform parameter κ) because these were 'not mentionned in the original article'. While the report provides detailed pseudocode for their implementation, these missing details in the original paper significantly hinder independent reconstruction.",
+    "Experiments": "The reproduction report clearly identifies the experimental setup (devaluation task with moderate vs. extensive training) and the parameters used, including those they had to infer or choose due to missing information in the original paper. The experimental conditions are generally well-described, but the necessity of inferring parameters reduces the score from a perfect 3.",
+    "Sinks": "The reproduction report clearly identifies the specific figures (Figure 3 A, B, G, H) from the original paper that it aims to reproduce. It presents its own results and explicitly notes that the reproduction is 'qualitative' with 'small differences in the exact timing of the strategy shifting and in the probabilities of action'. This indicates that while the overall trends and behaviors are similar, the precise quantitative results could not be perfectly matched, likely due to the missing methodological details mentioned previously."
+  },
+  "filename": "2016_07_article.pdf"
+}

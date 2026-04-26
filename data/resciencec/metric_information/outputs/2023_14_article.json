@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_14_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 2,
+    "Experiments": 2,
+    "Sinks": 2
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 85,
+    "Experiments": 85,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The research questions and main claims were clearly stated. The dataset (ImageNet) was identified, but the exact subset of 100 images used in the original paper was not specified, hindering direct comparisons. This required the reproducers to select their own random subset, leading to a 'more general evaluation' rather than exact replication of the original data context.",
+    "Methods": "The original authors provided a well-documented codebase, which greatly facilitated the reproduction and extension of the methods. However, the report explicitly states that 'Some hyperparameter settings and implementation details needed to reproduce the experiments were not clear or transparent from the original paper or code.' Specifically, the Ak values for certain figures were not provided, requiring communication with the authors and still not fully resolved for all parts, indicating partial specification.",
+    "Experiments": "The experimental setups, including hardware (NVIDIA Titan RTX) and general hyperparameters, were mostly specified or inferred from the provided code. However, the reproducers found it difficult to recreate Figure 3 (original Figure 7) due to 'uncertainties of which hyperparameters (Ak, number of iterations) or models were used.' This indicates that critical experimental configurations were not fully detailed in the original paper, requiring inference or communication with authors.",
+    "Sinks": "The reproduction report successfully reproduced most of the qualitative and quantitative results, supporting the original claims. However, for quantitative results (Figure 3 in the report, corresponding to Figure 7 in the original paper), the report notes that 'The exact results diverge in three slight ways from Fig. 7 in the original paper.' While the overall conclusions held, the inability to numerically reproduce figures exactly indicates that some underlying details were missing in the original paper's reporting, preventing perfect replication of the results."
+  },
+  "filename": "2023_14_article.pdf"
+}

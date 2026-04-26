@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2021_33_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 3,
+    "Experiments": 3,
+    "Sinks": 3
+  },
+  "confidence": {
+    "Sources": 95,
+    "Methods": 95,
+    "Experiments": 95,
+    "Sinks": 95
+  },
+  "reasoning": {
+    "Sources": "The original paper provided a detailed description of the data generation process, including character probabilities, Markov chain rules, image transformation steps (font types, stretching, noise amplitude). However, the reproducers noted that the exact ASCII character alphabet order, the specific tools for image generation, and the noise *probability* (only amplitude was given) were not specified. This required them to make choices and infer some details, leading to a score of 2.",
+    "Methods": "The original paper provided a comprehensive description of the Echo State Network (ESN) model, including all equations (1-9), activation functions, network architecture (number of units for input, reservoir, WM, output), and detailed parameterizations for weight matrices (sparsity, value ranges, spectral radius). The two-stage training process using linear regression was also clearly outlined. The reproducers successfully implemented the model based on these specifications, indicating sufficient detail for independent reconstruction.",
+    "Experiments": "The original paper clearly specified the experimental tasks (bracket counting, next character prediction), evaluation protocols (how errors were counted for WM-units and output units, correction mechanism), runtime conditions (number of runs, sequence lengths, warm-up steps for PCA), and the baseline comparison (ESN without WM-units). The attractor analysis method was also described. The reproducers followed these protocols and obtained comparable results, confirming the clarity of the experimental design. The only minor missing detail was the noise probability, which the reproducers had to infer.",
+    "Sinks": "The reproduction report successfully reproduced and presented all key results from the original paper, including tables for WM-unit errors (Table 3 in report vs. Table 1 in original), trigger characters for false positives (Table 4 vs. Table 2), average learned output weights (Table 5 vs. Table 3), and the qualitative attractor plots (Figure 4 vs. Figure 6). The report explicitly discussed the similarities and minor differences, attributing them to the unspecified details (fonts, alphabet, noise probability) in the original paper. The conclusions drawn by the reproducers align well with the original paper's findings."
+  },
+  "filename": "2021_33_article.pdf"
+}

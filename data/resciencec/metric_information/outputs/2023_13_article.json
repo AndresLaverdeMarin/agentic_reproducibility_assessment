@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "filename": "2023_13_article.pdf"
+  },
+  "scores": {
+    "Sources": 2,
+    "Methods": 1,
+    "Experiments": 1,
+    "Sinks": 1
+  },
+  "confidence": {
+    "Sources": 90,
+    "Methods": 90,
+    "Experiments": 90,
+    "Sinks": 90
+  },
+  "reasoning": {
+    "Sources": "The datasets used were clearly identified, and the original authors provided scripts for downloading, splitting, and preprocessing the data. However, the procedure for downsampling the dataset for varying sizes was not specified, requiring the reproducers to make their own choices.",
+    "Methods": "The high-level algorithms (SWAG, SGLD, SGHMC, SGD) and model architecture (ResNet50) were mentioned. However, the authors' code was described as 'insufficient to reproduce the paper's results,' 'hard to navigate,' and containing 'ambiguous parameters and a few hard-to-spot bugs.' Crucially, hyperparameters for the models were not reported, forcing the reproducers to extract what they could from the code and make 'educated guesses' for the rest.",
+    "Experiments": "The general experimental protocol, such as training 5 models per setting for standard error evaluation, was clear and followed. However, specific experimental configurations, particularly critical hyperparameters like the exact scaling factor for rank influence or the rank and scaling for the final comparison, were not specified by the original authors. This led to the reproducers making 'educated guesses' and ultimately failing to achieve the exact same accuracy or fully reproduce several key claims.",
+    "Sinks": "The reproducers could not achieve the exact same accuracy as the original paper due to missing hyperparameters. Claim 1 (rank influence) was contradicted, as the reproducers found no effect on performance. Claim 2 (prior scaling) was partially confirmed but also partially contradicted regarding the effect of increasing the scaling factor towards a near-uniform prior. Claim 4 (Bayesian learning performance boost) was only confirmed for smaller datasets and contradicted for larger ones. While Claims 3 and 5 were confirmed, the overall conclusion was that 'reproducibility of the full paper was not achieved,' indicating that many reported conclusions were not fully traceable to independently reconstructible steps."
+  },
+  "filename": "2023_13_article.pdf"
+}
