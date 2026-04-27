@@ -1,6 +1,9 @@
 models = {
     "gemini-2.5-flash"
     ? # 4 models maybe, available via Gemini API
+
+    # also maybe locally GPU from Andres some OpenSource
+    
 }
 
 temperatures = {
@@ -8,17 +11,19 @@ temperatures = {
 }
 
 papers_to_check = { # selected based on their length
-    2017_04_article.pdf # pages 4
-    2020_26_article.pdf # pages 8
-    2017_08_article.pdf # pages 11
-    2017_01_article.pdf # pages 15
-    2022_30_article.pdf # pages 18
-    2025_03_article.pdf # pages 20
-    2023_17_article.pdf # pages 24
-    2021_34_article.pdf # pages 28
-    2023_15_article.pdf # pages 30
-    2022_38_article.pdf # pages 34
+    2017_04_article.pdf # pages 4   3372
+    2020_26_article.pdf # pages 8   3701
+    2017_01_article.pdf # pages 15  6436
+    2025_03_article.pdf # pages 20	8930
+    2017_08_article.pdf # pages 11  9237
+    2022_30_article.pdf # pages 18	9800
+    2021_34_article.pdf # pages 28	13493
+    2023_17_article.pdf # pages 24	14733
+    2023_15_article.pdf # pages 30	16170
+    2022_38_article.pdf # pages 34	22917
 }
+
+N TIMES
 
 def ara_pipeline_function(paper_pdf_path):
     # placeholder function
