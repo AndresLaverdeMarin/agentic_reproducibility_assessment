@@ -124,16 +124,56 @@ The JSON outputs additionally store a confidence value from 0 to 100 and a short
 
 ## [Requirements](#requirements)
 
-### Python & Packages
-The repository uses **Python 3**. The PDF download and extraction script only depends on the Python standard library.
+### Python & Environment
 
-Optional analysis helpers use common scientific Python packages:
+The repository manages its Python environment with [**uv**](https://docs.astral.sh/uv/), Astral's fast package and project manager. Install uv once (`curl -LsSf https://astral.sh/uv/install.sh | sh`); from then on, no manual `pip`, `venv`, or `conda` is required.
+
+The environment is fully described by three files under `src/`:
+
+| File | Purpose |
+|------|---------|
+| `src/pyproject.toml`     | Project metadata, runtime dependencies, and dev tooling (`ruff`, `jupyter`, `ipykernel`) |
+| `src/uv.lock`            | Hash-pinned dependency lockfile resolved by uv; checked in for reproducibility, not edited by hand |
+| `src/.python-version`    | Pinned interpreter version (`3.12`). uv downloads the matching interpreter automatically on first sync |
+
+To create the environment from the lockfile:
 
 ```setup
-pip install pandas matplotlib
+cd src
+uv sync
+```
+
+`uv sync` reads the lockfile, fetches the pinned Python interpreter if it is not already on the machine, creates `src/.venv/`, and installs every runtime and dev dependency. Run any command inside the environment with `uv run` (no manual activation needed):
+
+```setup
+cd src
+uv run python _preparation/download_pdfs.py
+uv run jupyter lab
 ```
 
 No neural model training stack is required for the checked-in benchmark labels and score artifacts.
+
+### LLM-backed Analyst
+
+The agentic analyst that converts a paper PDF into a structured `PaperProfile` lives in:
+
+```text
+src/ara_pipeline/gemini_rag.py
+```
+
+It exposes two interchangeable backends — `GeminiPaperAnalyst` (Google `google-genai` SDK) and `GPTPaperAnalyst` (OpenAI Responses API) — both returning the same Pydantic `PaperProfile` schema so downstream scoring code is backend-agnostic. API keys are read from the process environment or auto-loaded from `src/ara_pipeline/.env` via `python-dotenv`:
+
+| Variable | Used by |
+|----------|---------|
+| `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) | `GeminiPaperAnalyst` |
+| `GPT_API_KEY` (or `OPENAI_API_KEY`)    | `GPTPaperAnalyst`    |
+
+Smoke test after `uv sync`:
+
+```setup
+cd src
+uv run python -c "from ara_pipeline.gemini_rag import GeminiPaperAnalyst, GPTPaperAnalyst, PaperProfile; print('imports OK')"
+```
 
 ### Computational Resources
 Inspecting the CSV files and JSON score outputs can be done on a standard local machine. Downloading and extracting all PDF archives requires sufficient local disk space for the original PDFs, human replication reports, and zip archives.
@@ -144,13 +184,15 @@ Full ARA scoring runs are LLM/API-bound rather than GPU-training-bound. Runtime 
 If the PDF folders or zip archives are missing, they can be recreated with the preparation script:
 
 ```setup
-python src/_preparation/download_pdfs.py
+cd src
+uv run python _preparation/download_pdfs.py
 ```
 
 To redownload archives and recreate the extracted folders, use:
 
 ```setup
-python src/_preparation/download_pdfs.py --force
+cd src
+uv run python _preparation/download_pdfs.py --force
 ```
 
 By default, the script expects the repository root layout shown above and downloads the archives from the GitHub media URL configured in `src/_preparation/download_pdfs.py`.
