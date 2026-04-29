@@ -7,6 +7,9 @@ from google import genai
 from google.genai import types
 import subprocess
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 API_KEY = os.environ["GEMINI_API_KEY"]
 
