@@ -1,0 +1,32 @@
+[project]
+name = "src"
+version = "0.1.0"
+description = "ReScience PDF extraction pipeline using MarkItDown"
+requires-python = ">=3.11"
+dependencies = [
+    "markitdown[pdf]",
+    "pandas",
+    "openpyxl",
+    "requests",
+    "google-genai",
+    "openai>=1.50.0",
+    "pydantic",
+    "python-dotenv",
+    "matplotlib>=3.10.8",
+    "networkx>=3.6.1",
+    "scipy>=1.17.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+    "jupyter>=1.1.1",
+    "ruff>=0.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
