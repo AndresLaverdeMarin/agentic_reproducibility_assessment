@@ -28,6 +28,8 @@ PAPER_FIGURES = [
     "gemini3_1_pro_T0_node_counts_vs_repro",
     "gemini3_1_pro_T0_repro_by_year",
     "gemini3_1_pro_T0_paper_ranking",
+    "repro_vs_paper_length_T0",
+    "nodes_by_model_paper_length",
 ]
 
 for stem in PAPER_FIGURES:

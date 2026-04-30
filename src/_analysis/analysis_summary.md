@@ -396,6 +396,102 @@ The paper's argument follows four steps: **(1) the pipeline is reliable** → **
 
 ---
 
+---
+
+## Visual inspection notes
+
+Brief discussion of each figure in `figures/paper/`, based on direct inspection of the rendered plots.
+
+---
+
+### Fig 1 — Model comparison (`fig1_model_comparison`)
+
+<img src="figures/paper/fig1_model_comparison.png" width="480">
+
+The four Gemini models separate clearly. `gemini-3-flash-preview` achieves the highest median (~0.81) and the narrowest IQR, making it both the best-performing and most consistent model. `gemini-2.5-pro` has the widest spread and several low-scoring points (papers 2025_03 and 2021_34 visible near 0.57–0.61), suggesting it is more sensitive to paper difficulty. `gemini-2.5-flash` and `gemini-3.1-pro-preview` are similar in median (~0.73–0.74) but differ in spread. Critically, the coloured dots — one colour per paper — rank in roughly the same vertical order across all four model boxes: `2023_17_article` (yellow-green) sits at or near the top in every model, and the harder papers cluster near the bottom across all models. This cross-model consistency of paper ranking is the central empirical claim of Chapter 1 and is visually unambiguous.
+
+---
+
+### Fig 3 — Structural vs content (`gemini3_1_pro_T0_structural_vs_content`)
+
+<img src="figures/paper/gemini3_1_pro_T0_structural_vs_content.png" width="480">
+
+The point cloud sits predominantly below the y = x diagonal, confirming that structural scores systematically exceed content scores. The densest region lies in the upper-right quadrant (structural 0.85–1.0, content 0.55–0.85), where most papers achieve near-perfect graph connectivity but only moderate content reproducibility. One notable outlier at (structural ≈ 1.0, content ≈ 0.13) is coloured dark purple (low repro_index ≈ 0.36), indicating a paper with a complete workflow graph but almost no reproducible content — likely a paper where all node descriptions lack actionable detail. A handful of papers fall above the diagonal (content > structural), mostly in the mid-structural range (0.4–0.6), corresponding to papers with fragmented graphs but well-described individual steps. The colour gradient confirms that repro_index tracks the minimum of the two components: yellow (high) points cluster near the top-right, while purple (low) points appear whenever either score is low.
+
+---
+
+### Fig 4 — Layer content scores (`gemini3_1_pro_T0_layer_content`)
+
+<img src="figures/paper/gemini3_1_pro_T0_layer_content.png" width="480">
+
+The contrast between the three layers is the sharpest pattern in the entire analysis. The Sources box (blue, μ = 0.39) has a median near 0.25, an IQR spanning roughly 0.20–0.58, and whiskers extending from 0 to 1.0 — indicating a bimodal distribution where many papers either fully specify their datasets (score ≈ 1) or provide almost no usable information (score near 0). The Processes box (orange, μ = 0.81) is compact, with IQR approximately 0.75–0.92 and only a few low outliers below 0.5. The Sinks box (green, μ = 0.78) is even tighter. The magnitude of the source-layer gap — roughly half the score of processes and sinks — is the paper's most actionable finding: data availability and description quality is the primary reproducibility failure mode, not methodological clarity or output specification.
+
+---
+
+### Fig 7 — Code availability (`gemini3_1_pro_T0_metadata_richness`)
+
+<img src="figures/paper/gemini3_1_pro_T0_metadata_richness.png" width="480">
+
+Left panel: papers with a repository link (n = 152, blue) have a visibly higher box than those without (n = 61, orange). The no-repo median is ~0.72 vs. ~0.79 for has-repo, and the no-repo distribution has a longer lower tail with outliers reaching ~0.36. The *** significance annotation (Mann–Whitney p < 0.001) confirms the difference is not sampling noise. Right panel: hyperparameter count shows r = 0.018 — a flat, circular cloud with no discernible trend. Most papers report 7–10 hyperparameters; those reporting more do not score higher. This asymmetry between the two metadata predictors is noteworthy: repository presence matters, explicit parameter count does not.
+
+---
+
+### Fig 8 — Cross-notebook validation (`fig8_cross_validation`)
+
+<img src="figures/paper/fig8_cross_validation.png" width="480">
+
+The orange diamonds (single-run T = 0) track the blue consistency bands (mean ± 1 std, 10 samples) closely for the low-scoring papers on the left (2017_04, 2021_34, 2025_03), where both estimates agree around 0.66–0.75. Discrepancies grow for the higher-scoring papers: 2020_26 shows the largest gap, with the single-run diamond (~0.94) sitting well above the consistency band mean (~0.84), suggesting that this paper's score is sensitive to extraction run. Similarly 2022_38 and 2023_17 show single-run scores above their consistency means. The overall pattern is that single-run T = 0 tends to be at or above the multi-sample mean — a slight optimistic bias — but all diamonds fall within ±2 std, validating the corpus-scale design.
+
+---
+
+### Fig 5 — Wiring metrics (`gemini3_1_pro_T0_wiring_metrics`)
+
+<img src="figures/paper/gemini3_1_pro_T0_wiring_metrics.png" width="480">
+
+Four bars cluster near 0.81–0.99: sinks produced (0.98) and resolved inputs (0.99) are near-perfect with very small error bars, while LWCC fraction (0.87) and sources consumed (0.81) are slightly lower but still strong. The orange source-to-sink reachability bar (0.57) stands in stark contrast, with an error bar spanning roughly 0.22–0.92 — the highest variance of any metric. This wide spread indicates that end-to-end traceability is highly paper-specific: some papers provide complete source→sink paths while others have none. The gap between 0.99 resolved inputs and 0.57 source-to-sink reachability is particularly telling: process steps cite their inputs correctly, but the overall data flow is not traced end-to-end.
+
+---
+
+### Fig 6 — Repro by year (`gemini3_1_pro_T0_repro_by_year`)
+
+<img src="figures/paper/gemini3_1_pro_T0_repro_by_year.png" width="480">
+
+The mean line (orange) is broadly flat from 2016 to 2023 in the range 0.73–0.79, with two visible dips: 2017 (mean ~0.65, median ~0.65, and a low outlier near 0.36) and 2026 (mean ~0.63). The 2017 dip aligns with the early cohort of ReScience-C publications; the 2026 dip likely reflects a small and possibly atypical sample. Box widths are similar across years from 2019 onward, suggesting stable within-year variance. No upward trend is visible, which argues against a simple story of improving reproducibility standards over time. The 2024 year is absent — no papers in the dataset for that year.
+
+---
+
+### Fig — Paper ranking (`gemini3_1_pro_T0_paper_ranking`)
+
+<img src="figures/paper/gemini3_1_pro_T0_paper_ranking.png" width="480">
+
+The top 15 papers (blue) form a tight cluster from ~0.90 to 0.98, with `2020_27_article` at the top (0.979) and `2020_36_article` at the boundary (~0.90). The bottom 15 (orange) are more spread, ranging from `2021_26_article` (~0.46) and `2017_09_article` (~0.36) at the extreme to `2020_31_article` (~0.65) just below the median. The dashed median line (0.754) sits well to the right of the bottom 15, confirming they are genuinely poor rather than merely below-average. A visible gap separates the top cluster (≥ 0.90) from the rest of the corpus — papers above this threshold are qualitatively more reproducible, not just marginally higher.
+
+---
+
+### Fig — Node counts vs repro_index (`gemini3_1_pro_T0_node_counts_vs_repro`)
+
+<img src="figures/paper/gemini3_1_pro_T0_node_counts_vs_repro.png" width="480">
+
+All three panels display circular, structureless clouds. Source nodes (r = 0.029) and sink nodes (r = 0.019) are essentially uncorrelated with repro_index. Process nodes (r = 0.129) show a marginally positive association — the only panel with any visible trend — but even this is negligible. Papers with only 1–2 source nodes span the full range from 0.36 to 0.98; the same is true at 10+ nodes. The heavy vertical clustering of source nodes at counts 1–5 reflects that most papers reference few datasets, while a long right tail of papers with 10–17 source nodes shows no reward for data richness. The conclusion is unambiguous: extracting more nodes does not produce a higher score. Reproducibility is about the quality of what is described, not the quantity.
+
+---
+
+### Fig — Repro vs paper length at T = 0 (`repro_vs_paper_length_T0`)
+
+<img src="figures/paper/repro_vs_paper_length_T0.png" width="480">
+
+The dominant feature is a sharp peak at ~14 700 words (2023_17_article), where all four models converge near 0.96–0.97 — the single most reproducible paper in the consistency sweep. Outside that peak, the lines are non-monotonic and model-specific. `gemini-2.5-pro` (orange) shows the most volatile trajectory, dropping to ~0.58–0.61 in the 9 000–13 000 word range before recovering, and its shaded std band is by far the widest, particularly in the mid-length region. `gemini-3-flash-preview` (green) is the most stable model across all lengths, with a consistently high line and narrow band. `gemini-2.5-flash` (blue) and `gemini-3.1-pro-preview` (pink) track each other closely in the mid-range. The right portion of the plot (> 16 000 words) shows a gradual convergence of all models around 0.77–0.93, with `gemini-3-flash-preview` remaining highest. The key takeaway is that paper length alone is not a reliable predictor of reproducibility: the best and worst papers are both in the mid-length range, and the pattern is driven by individual paper characteristics rather than any length effect.
+
+---
+
+### Fig — Node counts by model and paper length (`nodes_by_model_paper_length`)
+
+<img src="figures/paper/nodes_by_model_paper_length.png" width="480">
+
+All three panels show a broadly increasing trend in node counts with paper length, but with substantial model-level disagreement. `gemini-2.5-flash` (blue) is a consistent outlier across all three layers — it extracts far more nodes than the other three models, especially for process nodes (reaching ~27 at 15 700 words vs. ~10–15 for others) and sink nodes (~15–16 in the 9 000–10 000 word range). This inflation likely reflects over-decomposition: the flash model splits workflow steps more finely. The three remaining models (gemini-2.5-pro, gemini-3-flash-preview, gemini-3.1-pro-preview) cluster tightly together with very similar node counts across all lengths, suggesting a shared decomposition style. Source nodes (left panel) show a characteristic dip at ~13 000 words before rising steeply at 22 000+ words, consistent across all models. The wide shaded bands for `gemini-2.5-flash` in the process panel confirm high run-to-run variance for that model, particularly for longer papers.
+
+---
+
 ## Quick-reference table
 
 | Placement | Figure | File stem | Notebook | Cell |
