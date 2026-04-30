@@ -180,7 +180,7 @@ def load_runs(profile_dir: Path) -> list[dict]:
         if info is None:
             continue
         try:
-            profile = json.loads(path.read_text())
+            profile = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             continue
         rows.append(
