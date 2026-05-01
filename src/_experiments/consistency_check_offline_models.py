@@ -2,13 +2,14 @@
 
 Runs every (model, temperature, paper, sample) combination through
 VLLMOfflinePaperAnalyst and writes the resulting PaperProfile to
-data/experiments/rescience_c/<paper>_T<t>_exe<n>_<model>.profile.json
+data/experiments/consistency_checks/rescience_c_local_models/<paper>_T<t>_exe<n>_<model>.profile.json
+under the repository root.
 
-Usage:
-    uv run python run_consistency_experiment.py --workers 8
-    uv run python run_consistency_experiment.py --dry-run
-    uv run python run_consistency_experiment.py --models qwen3-32b --workers 4
-    uv run python run_consistency_experiment.py --force
+Usage (from src/):
+    uv run python _experiments/consistency_check_offline_models.py --workers 8
+    uv run python _experiments/consistency_check_offline_models.py --dry-run
+    uv run python _experiments/consistency_check_offline_models.py --models qwen3-32b --workers 4
+    uv run python _experiments/consistency_check_offline_models.py --force
 
 Resumes by default: existing output files are skipped unless --force is passed.
 Failures land in a sidecar <stem>.err.txt so a single bad run doesn't abort
@@ -27,12 +28,21 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 
-from local_llm_pipeline import VLLMOfflinePaperAnalyst
+# Make `ara_pipeline` importable when this script is run directly from `src/`.
+# `python file.py` puts the script's directory on sys.path, not its parent;
+# inserting `src/` lets `from ara_pipeline... import ...` resolve without an
+# editable install (mirrors the shim in consistency_check.py).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from ara_pipeline.local_llm_pipeline import VLLMOfflinePaperAnalyst
 
 # -- experiment grid ----------------------------------------------------------
 
-PAPER_DIR = Path("data/rescience_c")
-OUTPUT_DIR = Path("data/experiments/rescience_c")
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+PAPER_DIR = REPO_ROOT / "data" / "resciencec" / "papers_original"
+OUTPUT_DIR = (
+    REPO_ROOT / "data" / "experiments" / "consistency_checks" / "rescience_c_local_models"
+)
 
 TIMINGS_CSV = OUTPUT_DIR / "run_timings.csv"
 TIMINGS_FIELDS = [
