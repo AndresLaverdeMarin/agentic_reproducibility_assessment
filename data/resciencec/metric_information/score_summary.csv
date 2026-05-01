@@ -1,5 +1,0 @@
-dimension,count,mean_score,std_score,mean_confidence,std_confidence
-Sources,214,2.355,0.796,91.682,4.744
-Methods,214,1.556,0.759,85.794,7.305
-Experiments,214,1.556,0.702,84.836,7.433
-Sinks,214,2.033,0.88,88.505,7.323
