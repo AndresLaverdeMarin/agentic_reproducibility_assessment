@@ -1,6 +1,6 @@
 """Gemini-backed replicability scorer for paired (original, human-reproduction) PDFs.
 
-Companion to ``src/ara_pipeline/gemini_rag.py``: that module extracts a workflow
+Companion to ``src/ara_pipeline/online_llm_pipelines.py``: that module extracts a workflow
 profile from a single paper; this one scores how reproducible an ORIGINAL_PAPER
 proved to be, given a REPRODUCTION_REPORT as evidence. Four 1-4 ordinal scores
 (``Sources`` / ``Methods`` / ``Experiments`` / ``Sinks``), each with a 0-100

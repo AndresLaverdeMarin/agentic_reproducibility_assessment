@@ -1,6 +1,6 @@
 """Agentic reproducibility assessment pipeline."""
 
-from .gemini_rag import GeminiPaperAnalyst, GPTPaperAnalyst, PaperProfile
+from .online_llm_pipelines import GeminiPaperAnalyst, GPTPaperAnalyst, PaperProfile
 from .repro_scoring import (
     StemInfo,
     build_graph,

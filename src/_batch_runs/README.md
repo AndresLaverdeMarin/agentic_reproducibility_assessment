@@ -105,7 +105,7 @@ Filename slug rules (shared with `consistency_check.py`):
 
 ## Downstream
 
-Profile JSONs follow the canonical `PaperProfile` schema defined in `src/ara_pipeline/gemini_rag.py` and can be fed directly into:
+Profile JSONs follow the canonical `PaperProfile` schema defined in `src/ara_pipeline/online_llm_pipelines.py` and can be fed directly into:
 
 - `ara_pipeline.repro_scoring` to compute the reproducibility index.
 - `src/_analysis/workflow_graph_analysis.ipynb` for per-paper inspection (set `JSON_PATH` to one of the produced files).

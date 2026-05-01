@@ -158,7 +158,7 @@ No neural model training stack is required for the checked-in benchmark labels a
 The agentic analyst that converts a paper PDF into a structured `PaperProfile` lives in:
 
 ```text
-src/ara_pipeline/gemini_rag.py
+src/ara_pipeline/online_llm_pipelines.py
 ```
 
 It exposes two interchangeable backends — `GeminiPaperAnalyst` (Google `google-genai` SDK) and `GPTPaperAnalyst` (OpenAI Responses API) — both returning the same Pydantic `PaperProfile` schema so downstream scoring code is backend-agnostic. API keys are read from the process environment or auto-loaded from `src/ara_pipeline/.env` via `python-dotenv`:
@@ -172,7 +172,7 @@ Smoke test after `uv sync`:
 
 ```setup
 cd src
-uv run python -c "from ara_pipeline.gemini_rag import GeminiPaperAnalyst, GPTPaperAnalyst, PaperProfile; print('imports OK')"
+uv run python -c "from ara_pipeline.online_llm_pipelines import GeminiPaperAnalyst, GPTPaperAnalyst, PaperProfile; print('imports OK')"
 ```
 
 ### Computational Resources
