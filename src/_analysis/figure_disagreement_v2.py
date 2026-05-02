@@ -237,9 +237,9 @@ def plot_score_boxplot(scores: pd.DataFrame) -> None:
             "markeredgecolor": "#1f2937",
             "markersize": 4,
         },
-        boxprops={"facecolor": SUBPLOT_COLORS[2], "edgecolor": "#365314", "alpha": 0.85},
-        whiskerprops={"color": "#365314"},
-        capprops={"color": "#365314"},
+        boxprops={"facecolor": SUBPLOT_COLORS[1], "edgecolor": "#7f1d1d", "alpha": 0.85},
+        whiskerprops={"color": "#7f1d1d"},
+        capprops={"color": "#7f1d1d"},
     )
     plt.title("Reproducibility Score", fontweight="bold")
     # plt.xlabel("Score component")
@@ -267,9 +267,9 @@ def plot_disagreement_boxplot(data: pd.DataFrame) -> None:
             "markeredgecolor": "#1f2937",
             "markersize": 4,
         },
-        boxprops={"facecolor": SUBPLOT_COLORS[3], "edgecolor": "#075985", "alpha": 0.85},
-        whiskerprops={"color": "#075985"},
-        capprops={"color": "#075985"},
+        boxprops={"facecolor": SUBPLOT_COLORS[2], "edgecolor": "#365314", "alpha": 0.85},
+        whiskerprops={"color": "#365314"},
+        capprops={"color": "#365314"},
     )
     plt.title("Human-Agent Disagreement", fontweight="bold")
     # plt.xlabel("Score component")
@@ -345,7 +345,7 @@ def plot_disagreement_boxplot_over_page_bins(
             "markeredgecolor": "#1f2937",
             "markersize": 4,
         },
-        boxprops={"facecolor": SUBPLOT_COLORS[4], "edgecolor": "#075985", "alpha": 0.85},
+        boxprops={"facecolor": SUBPLOT_COLORS[3], "edgecolor": "#075985", "alpha": 0.85},
         whiskerprops={"color": "#075985"},
         capprops={"color": "#075985"},
     )
@@ -391,7 +391,7 @@ def plot_disagreement_boxplot_over_word_bins(
             "markeredgecolor": "#1f2937",
             "markersize": 4,
         },
-        boxprops={"facecolor": SUBPLOT_COLORS[4], "edgecolor": "#075985", "alpha": 0.85},
+        boxprops={"facecolor": SUBPLOT_COLORS[3], "edgecolor": "#075985", "alpha": 0.85},
         whiskerprops={"color": "#075985"},
         capprops={"color": "#075985"},
     )
@@ -444,9 +444,9 @@ def plot_disagreement_boxplot_over_node_bins(
             "markeredgecolor": "#1f2937",
             "markersize": 4,
         },
-        boxprops={"facecolor": SUBPLOT_COLORS[4], "edgecolor": "#075985", "alpha": 0.85},
-        whiskerprops={"color": "#075985"},
-        capprops={"color": "#075985"},
+        boxprops={"facecolor": SUBPLOT_COLORS[4], "edgecolor": "#1e3a8a", "alpha": 0.85},
+        whiskerprops={"color": "#1e3a8a"},
+        capprops={"color": "#1e3a8a"},
     )
     plt.title("Disagreement by Node Count", fontweight="bold")
     plt.xlabel("Node count bin")
@@ -490,16 +490,16 @@ def plot_reproscore_boxplot_over_page_bins(
             "markeredgecolor": "#1f2937",
             "markersize": 4,
         },
-        boxprops={"facecolor": SUBPLOT_COLORS[4], "edgecolor": "#075985", "alpha": 0.85},
-        whiskerprops={"color": "#075985"},
-        capprops={"color": "#075985"},
+        boxprops={"facecolor": SUBPLOT_COLORS[4], "edgecolor": "#1e3a8a", "alpha": 0.85},
+        whiskerprops={"color": "#1e3a8a"},
+        capprops={"color": "#1e3a8a"},
     )
     plt.title("Reproducibility (by Pages)", fontweight="bold")
     plt.xlabel("Page length bin")
     plt.ylabel("Reproducibility score")
     plt.xticks(range(1, len(bin_labels) + 1), bin_labels, rotation=90)
     plt.yticks([1, 2, 3, 4])
-    plt.ylim(0.9, 4.1)
+    plt.ylim(1.9, 4.1)
     set_square_subplot()
 
 
@@ -610,23 +610,16 @@ plt.rcParams["mathtext.default"] = "regular"
 plt.figure(figsize=FIGSIZE)
 
 plt.subplot(1, 4, 1)
-plot_paper_length_kde(analysis)
-
-plt.subplot(1, 4, 2)
 plot_score_boxplot(scores)
 
-plt.subplot(1, 4, 3)
+plt.subplot(1, 4, 2)
 plot_disagreement_boxplot(analysis)
 
-plt.subplot(1, 4, 4)
-# plot_disagreement_over_length(analysis)
-# plot_disagreement_boxplot_over_page_bins(analysis)
-plot_disagreement_boxplot_over_word_bins(analysis) # <---
-# plot_disagreement_boxplot_over_node_bins(analysis)
+plt.subplot(1, 4, 3)
+plot_disagreement_boxplot_over_word_bins(analysis)
 
-# plot_reproscore_boxplot_over_page_bins(analysis)
-# plot_reproscore_boxplot_over_word_bins(analysis)
-# plot_reproscore_boxplot_over_node_bins(analysis)
+plt.subplot(1, 4, 4)
+plot_reproscore_boxplot_over_page_bins(analysis)
 
 plt.tight_layout()
 
