@@ -1,0 +1,14 @@
+# Runtime dependencies for ARA.
+# The repository also includes pyproject.toml and uv.lock for users who prefer uv.
+
+markitdown[pdf]
+pandas
+openpyxl
+requests
+google-genai
+openai>=1.50.0
+pydantic
+python-dotenv
+matplotlib>=3.10.8
+networkx>=3.6.1
+scipy>=1.17.1
