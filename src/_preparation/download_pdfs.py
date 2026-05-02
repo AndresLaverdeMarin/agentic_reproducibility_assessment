@@ -14,7 +14,7 @@ from pathlib import Path
 
 DEFAULT_BASE_URL = (
     "https://media.githubusercontent.com/media/"
-    "DerKevinRiehl/agentic_reproducibility_assessment/main"
+    "Der********/agentic_reproducibility_assessment/main"
 )
 
 
