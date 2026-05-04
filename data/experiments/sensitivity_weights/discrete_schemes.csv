@@ -1,0 +1,13 @@
+scheme,R_mean,|ΔR|_mean,|ΔR|_p95,|ΔR|_max
+default,0.6962,0.0,0.0,0.0
+uniform_layer,0.6914,0.0085,0.023,0.0343
+uniform_struct,0.6922,0.0071,0.0282,0.0488
+uniform_both,0.6875,0.0141,0.0365,0.0584
+loo_layer:source,0.7291,0.0474,0.1371,0.1584
+loo_layer:process,0.6638,0.0561,0.154,0.5237
+loo_layer:sink,0.6825,0.0261,0.0705,0.2808
+loo_struct:sources_consumed_ratio,0.7187,0.0428,0.1124,0.1774
+loo_struct:sinks_produced_ratio,0.6798,0.0349,0.0888,0.2363
+loo_struct:resolved_input_ratio,0.6629,0.036,0.1052,0.2316
+loo_struct:source_to_sink_reachability,0.7272,0.0313,0.0614,0.0656
+loo_struct:lwcc_fraction,0.6806,0.0205,0.0482,0.2739

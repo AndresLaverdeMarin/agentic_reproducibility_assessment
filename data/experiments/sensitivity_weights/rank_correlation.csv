@@ -1,0 +1,13 @@
+scheme,spearman_rho_vs_default
+default,1.0
+uniform_layer,0.9758
+uniform_struct,0.9879
+uniform_both,0.9515
+loo_layer:source,0.8788
+loo_layer:process,0.8909
+loo_layer:sink,0.903
+loo_struct:sources_consumed_ratio,0.8424
+loo_struct:sinks_produced_ratio,0.9758
+loo_struct:resolved_input_ratio,1.0
+loo_struct:source_to_sink_reachability,0.9515
+loo_struct:lwcc_fraction,0.9879
