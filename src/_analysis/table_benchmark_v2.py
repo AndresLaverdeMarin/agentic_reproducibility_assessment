@@ -39,12 +39,17 @@ def mean_std_raw(values: list[float]) -> str:
     return f"{mean(values):.2f} +/- {std:.2f}"
 
 
+def fmt_percent(value: float) -> str:
+    return f"{value * 100:.2f}"
+
+
 def macro_classification_scores(
     true_values: list[int],
     pred_values: list[int],
 ) -> tuple[list[float], list[float]]:
     if not true_values:
         return [], []
+
     classes = sorted(set(true_values) | set(pred_values))
     accuracies = []
     f1_scores = []
@@ -58,14 +63,41 @@ def macro_classification_scores(
         false_positives = sum((not true) and pred for true, pred in zip(true_binary, pred_binary))
         false_negatives = sum(true and (not pred) for true, pred in zip(true_binary, pred_binary))
 
-        # F1 = 2*TP / (2*TP + FN + FP)
-        # ACC = (TP + TN) / (TP + TN + FP + FN)
-
         accuracies.append(correct / len(true_binary))
         denominator = (2 * true_positives) + false_positives + false_negatives
         f1_scores.append((2 * true_positives / denominator) if denominator else 0.0)
 
     return accuracies, f1_scores
+
+
+def multiclass_scores(true_values: list[int], pred_values: list[int]) -> tuple[float, float]:
+    """Direct pooled multiclass accuracy and macro-F1."""
+    if not true_values:
+        return 0.0, 0.0
+
+    accuracy = sum(true == pred for true, pred in zip(true_values, pred_values)) / len(true_values)
+
+    classes = sorted(set(true_values) | set(pred_values))
+    f1_scores = []
+
+    for cls in classes:
+        true_positives = sum(
+            true == cls and pred == cls
+            for true, pred in zip(true_values, pred_values)
+        )
+        false_positives = sum(
+            true != cls and pred == cls
+            for true, pred in zip(true_values, pred_values)
+        )
+        false_negatives = sum(
+            true == cls and pred != cls
+            for true, pred in zip(true_values, pred_values)
+        )
+
+        denominator = (2 * true_positives) + false_positives + false_negatives
+        f1_scores.append((2 * true_positives / denominator) if denominator else 0.0)
+
+    return accuracy, mean(f1_scores)
 
 
 def to_ordinal_class(value: float) -> int:
@@ -79,6 +111,7 @@ def unit_to_ordinal_class(value: float) -> int:
 def binary_scores(true_values: list[int], pred_values: list[int]) -> tuple[float, float]:
     if not true_values:
         return 0.0, 0.0
+
     correct = sum(true == pred for true, pred in zip(true_values, pred_values))
     true_positives = sum(true == 1 and pred == 1 for true, pred in zip(true_values, pred_values))
     false_positives = sum(true == 0 and pred == 1 for true, pred in zip(true_values, pred_values))
@@ -151,7 +184,7 @@ def load_rescience_truth_outputs(outputs_dir: Path, outputs_zip: Path) -> dict[s
 
     return rows
 
-######### VALUE TEMPLATE
+
 VALUES = {
     "ARA": {
         "Rescience C": {"ACC": "", "F1": "", "Distance": "", "Abs Distance": ""},
@@ -166,23 +199,31 @@ VALUES = {
     "ReplicatorAgent": {
         "Rescience C": {"ACC": "-", "F1": "-", "Distance": "-", "Abs Distance": "-"},
         "GoldStandardDB": {"ACC": "-", "F1": "-"},
-            # NUMBERS TAKEN FROM TABLE 2, PAPER "ReplicatorBench: Benchmarking LLM Agents for Replicability in Social and Behavioral Sciences"
-        # "ReproBench": {"ACC": "57.89", "F1": "54.76"}, # o3
-        # "ReproBench": {"ACC": "68.42", "F1": "63.46"}, # GPT-4o
         "ReproBench": {
             "ACC": "36.84",
             "F1": "36.67",
             "Distance": "--",
             "Abs Distance": "0.63",
-        }, # GPT-5-mini
-        # "ReproBench": {"ACC": "78.95", "F1": "77.38"}, # GPT-5
-        # MAYBE DO MEAN AND STD
+        },  # GPT-5-mini
     },
 }
 
+DIRECT_VALUES = {
+    row: {
+        dataset: {"ACC": "-", "F1": "-"}
+        for dataset in DATASETS
+    }
+    for row in ROWS
+}
+
+# ReplicatorAgent ReproBench values are already direct table values.
+DIRECT_VALUES["ReplicatorAgent"]["ReproBench"]["ACC"] = "36.84"
+DIRECT_VALUES["ReplicatorAgent"]["ReproBench"]["F1"] = "36.67"
+
+
 ######### CALCULATE PERFORMANCE OF ARA
 
-    ### ON RESCIENCE C
+### ON RESCIENCE C
 rescience_metric_info = ROOT / "data" / "resciencec" / "metric_information"
 rescience_truth_dir = rescience_metric_info / "outputs"
 rescience_truth_zip = rescience_metric_info / "outputs.zip"
@@ -204,10 +245,12 @@ with ara_rescience_csv.open(newline="", encoding="utf-8") as f:
 
 ara_rescience_true_values = []
 ara_rescience_pred_values = []
+
 for row in ara_rescience_rows:
     paperid = row["paperid"]
     if paperid not in rescience_truth_by_paper or "Overall" not in rescience_truth_by_paper[paperid]:
         continue
+
     ara_rescience_true_values.append(rescience_truth_by_paper[paperid]["Overall"])
     ara_rescience_pred_values.append(to_ordinal_class(float(row["R_0_4"])))
 
@@ -217,6 +260,14 @@ ara_rescience_accuracies, ara_rescience_f1_scores = macro_classification_scores(
 )
 VALUES["ARA"]["Rescience C"]["ACC"] = mean_std(ara_rescience_accuracies)
 VALUES["ARA"]["Rescience C"]["F1"] = mean_std(ara_rescience_f1_scores)
+
+direct_acc, direct_f1 = multiclass_scores(
+    ara_rescience_true_values,
+    ara_rescience_pred_values,
+)
+DIRECT_VALUES["ARA"]["Rescience C"]["ACC"] = fmt_percent(direct_acc)
+DIRECT_VALUES["ARA"]["Rescience C"]["F1"] = fmt_percent(direct_f1)
+
 ara_rescience_distances = [
     pred - true for true, pred in zip(ara_rescience_true_values, ara_rescience_pred_values)
 ]
@@ -248,14 +299,16 @@ for dimension, ara_column in RESCIENCE_DIMENSIONS:
     accuracies_detail, f1_scores_detail = macro_classification_scores(true_values, pred_values)
     distances = [pred - true for true, pred in zip(true_values, pred_values)]
     abs_distances = [abs(distance) for distance in distances]
+
     RESCIENCE_DETAIL_VALUES[dimension] = {
         "ACC": mean_std(accuracies_detail),
         "F1": mean_std(f1_scores_detail),
         "Distance": mean_std_raw(distances),
         "Abs Distance": mean_std_raw(abs_distances),
     }
-    
-    ### ON GoldStandardDB
+
+
+### ON GOLDSTANDARDDB
 reproscreener_csv = ROOT / "data" / "reproscreener" / "reproducibility_scores.csv"
 ara_reproscreener_base = ROOT / "data" / "reproscreener" / "ara_customized"
 ara_reproscreener_outputs = ara_reproscreener_base / "outputs"
@@ -277,6 +330,8 @@ ara_reproscreener_by_paper = load_ara_reproscreener_outputs(
 
 ara_gold_accuracies = []
 ara_gold_f1_scores = []
+ara_gold_true_all = []
+ara_gold_pred_all = []
 
 for category in category_names:
     true_values = []
@@ -298,10 +353,18 @@ for category in category_names:
     ara_gold_accuracies.append(accuracy)
     ara_gold_f1_scores.append(f1)
 
+    ara_gold_true_all.extend(true_values)
+    ara_gold_pred_all.extend(pred_values)
+
 VALUES["ARA"]["GoldStandardDB"]["ACC"] = mean_std(ara_gold_accuracies)
 VALUES["ARA"]["GoldStandardDB"]["F1"] = mean_std(ara_gold_f1_scores)
-    
-    ### ON REPROBENCH
+
+direct_acc, direct_f1 = binary_scores(ara_gold_true_all, ara_gold_pred_all)
+DIRECT_VALUES["ARA"]["GoldStandardDB"]["ACC"] = fmt_percent(direct_acc)
+DIRECT_VALUES["ARA"]["GoldStandardDB"]["F1"] = fmt_percent(direct_f1)
+
+
+### ON REPROBENCH
 reprobench_truth_csv = ROOT / "data" / "reprobench" / "reproducibility_scores.csv"
 ara_reprobench_csv = (
     ROOT
@@ -324,10 +387,12 @@ ground_truth_by_paper = {
 
 ara_true_values = []
 ara_pred_values = []
+
 for row in ara_reprobench_rows:
     paperid = row["paperid"]
     if paperid not in ground_truth_by_paper:
         continue
+
     ara_true_values.append(ground_truth_by_paper[paperid])
     ara_pred_values.append(to_ordinal_class(float(row["R_0_4"])))
 
@@ -337,6 +402,11 @@ ara_accuracies, ara_f1_scores = macro_classification_scores(
 )
 VALUES["ARA"]["ReproBench"]["ACC"] = mean_std(ara_accuracies)
 VALUES["ARA"]["ReproBench"]["F1"] = mean_std(ara_f1_scores)
+
+direct_acc, direct_f1 = multiclass_scores(ara_true_values, ara_pred_values)
+DIRECT_VALUES["ARA"]["ReproBench"]["ACC"] = fmt_percent(direct_acc)
+DIRECT_VALUES["ARA"]["ReproBench"]["F1"] = fmt_percent(direct_f1)
+
 ara_reprobench_distances = [
     pred - true for true, pred in zip(ara_true_values, ara_pred_values)
 ]
@@ -346,11 +416,11 @@ VALUES["ARA"]["ReproBench"]["Abs Distance"] = mean_std_raw(
 )
 
 
-
-
 ######### CALCULATE PERFORMANCE OF REPROSCREENER
 accuracies = []
 f1_scores = []
+reproscreener_gold_true_all = []
+reproscreener_gold_pred_all = []
 
 for category in category_names:
     true_values = [int(row[f"manual_{category}"]) for row in reproscreener_rows]
@@ -360,15 +430,21 @@ for category in category_names:
     accuracies.append(accuracy)
     f1_scores.append(f1)
 
+    reproscreener_gold_true_all.extend(true_values)
+    reproscreener_gold_pred_all.extend(pred_values)
+
 VALUES["ReproScreener"]["GoldStandardDB"]["ACC"] = mean_std(accuracies)
 VALUES["ReproScreener"]["GoldStandardDB"]["F1"] = mean_std(f1_scores)
 
+direct_acc, direct_f1 = binary_scores(
+    reproscreener_gold_true_all,
+    reproscreener_gold_pred_all,
+)
+DIRECT_VALUES["ReproScreener"]["GoldStandardDB"]["ACC"] = fmt_percent(direct_acc)
+DIRECT_VALUES["ReproScreener"]["GoldStandardDB"]["F1"] = fmt_percent(direct_f1)
 
-######### CALCULATE PERFORMANCE OF ReplicatorAgent
 
-
-
-######### PRINT TABLE
+######### PRINT ORIGINAL TABLE
 print("| dataset | metric | " + " | ".join(ROWS) + " |")
 print("| --- | --- | " + " | ".join(["---"] * len(ROWS)) + " |")
 for dataset in DATASETS:
@@ -378,6 +454,22 @@ for dataset in DATASETS:
             cells.append(VALUES[row][dataset][metric])
         print("| " + " | ".join(cells) + " |")
 
+
+######### PRINT DIRECT POOLED TABLE
+print()
+print("Direct pooled ACC/F1")
+print()
+print("| dataset | metric | " + " | ".join(ROWS) + " |")
+print("| --- | --- | " + " | ".join(["---"] * len(ROWS)) + " |")
+for dataset in DATASETS:
+    for metric in ("ACC", "F1"):
+        cells = [dataset, metric]
+        for row in ROWS:
+            cells.append(DIRECT_VALUES[row][dataset][metric])
+        print("| " + " | ".join(cells) + " |")
+
+
+######### PRINT RESCIENCE DETAIL TABLE
 print()
 print("| ReScience C ARA score | ACC | F1 | Distance | Abs Distance |")
 print("| --- | --- | --- | --- | --- |")
