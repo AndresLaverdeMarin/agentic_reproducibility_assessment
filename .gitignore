@@ -651,3 +651,11 @@ data/resciencec/metric_information/outputs/2025_06_article.json
 data/resciencec/metric_information/outputs/2026_01_article.json
 data/resciencec/metric_information/outputs/2026_02_article.json
 data/resciencec/metric_information/outputs/2015_01_article.json
+
+# Local gpt-oss consistency-check profiles (not tracked)
+data/experiments/consistency_checks/rescience_c_openai_local/
+data/experiments/consistency_checks/rescience_c_openai_local/*.json
+
+# Metric information outputs (not tracked)
+data/resciencec/metric_information/outputs/
+data/resciencec/metric_information/outputs/*.json
